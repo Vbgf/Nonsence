@@ -1,0 +1,67 @@
+body {
+    background-color: white;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#header h1{
+	text-align: center;
+	font-size: 50px;
+}
+
+#header h2{
+	font-size: 35px;
+	text-align: center;
+}
+
+
+#menu ul{
+	margin: 0;
+	padding:  5px 5%;
+	list-style-type: none;
+	text-align: center;
+	background-color: #000;
+}
+
+#menu ul li {
+	display: inline;
+}
+
+#menu ul li a{
+	padding: 5px 25px;
+	text-decoration: none;
+	color: #fff;
+	background-color: #000;
+}
+
+#menu ul li a:hover{
+	color: #000;
+	background-color: #fff;
+}
+
+#search {
+	text-align: center;
+}
+
+
+#image img{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+#image_home img{
+	display: block;
+	margin-top: 250px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#image_maps img{
+	display: block;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
