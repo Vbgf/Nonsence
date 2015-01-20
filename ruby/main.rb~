@@ -1,0 +1,3 @@
+def i
+	return 123
+end

@@ -1,0 +1,7 @@
+require "../ruby/main.rb"
+
+describe "main.rb" do
+	it "Checks if i == 0" do
+		expect(i).to eq(0)
+	end
+end

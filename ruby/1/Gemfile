@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+group :coverage do
+	gem 'simplecov', :require => false
+end
+
