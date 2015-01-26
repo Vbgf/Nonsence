@@ -7,7 +7,7 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 4096
-
+//#define BUFFER_SIZE 32
 int read_file(char argv[]){
 	int fd = open(argv, O_RDONLY);
 	if (fd==-1){
@@ -45,10 +45,9 @@ int main(int argc, char *argv[]){
 	int result;
 	for(i=0; i<argc; ++i){
 		if ((argc==1) || (strncmp(argv[i], "-", 1) == 0)){
-			//total = read_stdin(total);
+			//total = read_stdin();
 		}else{ 
 			if(argv[0]!=argv[i]){
-				//total = read_file(argv[i], total);
 				result = read_file(argv[i]);
 			}
 		}
