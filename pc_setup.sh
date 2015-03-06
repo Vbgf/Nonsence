@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 apt-get install geany -y
 apt-get install gcc -y
 apt-get install g++ -y
