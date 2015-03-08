@@ -11,5 +11,6 @@ apt-get install libreoffice -y
 apt-get install bundler -y
 apt-get install flashplugin-installer -y
 apt-get install git -y
+apt-get install pip -y
 clear
 
