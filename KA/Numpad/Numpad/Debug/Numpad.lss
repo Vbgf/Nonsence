@@ -1,0 +1,339 @@
+
+Numpad.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000198  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  000001ec  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000090  00000000  00000000  0000021c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000735  00000000  00000000  000002ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 0000034f  00000000  00000000  000009e1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000541  00000000  00000000  00000d30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  000000cc  00000000  00000000  00001274  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    0000024b  00000000  00000000  00001340  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    000004ec  00000000  00000000  0000158b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000060  00000000  00000000  00001a77  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e8 e9       	ldi	r30, 0x98	; 152
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a0 30       	cpi	r26, 0x00	; 0
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+  8a:	0e 94 93 00 	call	0x126	; 0x126 <main>
+  8e:	0c 94 ca 00 	jmp	0x194	; 0x194 <_exit>
+
+00000092 <__bad_interrupt>:
+  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000096 <keyboard_initialize>:
+*/
+
+/* Initializes the ports for the keyboard */
+void keyboard_initialize(void){
+	/* Rows will be input with pull-up*/
+	DDRD &= ~(_BV(PORTD2) | _BV(PORTD3) | _BV(PORTD4) | _BV(PORTD5));
+  96:	8a b1       	in	r24, 0x0a	; 10
+  98:	83 7c       	andi	r24, 0xC3	; 195
+  9a:	8a b9       	out	0x0a, r24	; 10
+	PORTD |= (_BV(PORTD2) | _BV(PORTD3) | _BV(PORTD4) | _BV(PORTD5));
+  9c:	8b b1       	in	r24, 0x0b	; 11
+  9e:	8c 63       	ori	r24, 0x3C	; 60
+  a0:	8b b9       	out	0x0b, r24	; 11
+	
+	/* Columns will be input without pull-up*/
+	DDRD &= ~(_BV(PORTD6) | _BV(PORTD7));
+  a2:	8a b1       	in	r24, 0x0a	; 10
+  a4:	8f 73       	andi	r24, 0x3F	; 63
+  a6:	8a b9       	out	0x0a, r24	; 10
+	PORTD &= ~(_BV(PORTD6) | _BV(PORTD7));
+  a8:	8b b1       	in	r24, 0x0b	; 11
+  aa:	8f 73       	andi	r24, 0x3F	; 63
+  ac:	8b b9       	out	0x0b, r24	; 11
+	DDRB &= ~(_BV(PORTB0) | _BV(PORTB1));
+  ae:	84 b1       	in	r24, 0x04	; 4
+  b0:	8c 7f       	andi	r24, 0xFC	; 252
+  b2:	84 b9       	out	0x04, r24	; 4
+	PORTB &= ~(_BV(PORTB0) | _BV(PORTB1));
+  b4:	85 b1       	in	r24, 0x05	; 5
+  b6:	8c 7f       	andi	r24, 0xFC	; 252
+  b8:	85 b9       	out	0x05, r24	; 5
+  ba:	08 95       	ret
+
+000000bc <keyboard_read>:
+
+/* Reads all 16 keys from the keyboard and returns a uint16_t */
+uint16_t keyboard_read(void){
+	uint16_t result;
+	uint8_t scan;
+	DDRD |= _BV(PORTD6);
+  bc:	56 9a       	sbi	0x0a, 6	; 10
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  be:	80 e1       	ldi	r24, 0x10	; 16
+  c0:	8a 95       	dec	r24
+  c2:	f1 f7       	brne	.-4      	; 0xc0 <keyboard_read+0x4>
+	_delay_loop_1(16);
+	scan = PIND;
+  c4:	29 b1       	in	r18, 0x09	; 9
+	result = (uint16_t)((scan >> 2) & 0b00001111);
+  c6:	26 95       	lsr	r18
+  c8:	26 95       	lsr	r18
+  ca:	2f 70       	andi	r18, 0x0F	; 15
+  cc:	30 e0       	ldi	r19, 0x00	; 0
+	DDRD &= ~(_BV(PORTD6));
+  ce:	56 98       	cbi	0x0a, 6	; 10
+	
+	DDRD |= _BV(PORTD7);
+  d0:	57 9a       	sbi	0x0a, 7	; 10
+  d2:	80 e1       	ldi	r24, 0x10	; 16
+  d4:	8a 95       	dec	r24
+  d6:	f1 f7       	brne	.-4      	; 0xd4 <keyboard_read+0x18>
+	_delay_loop_1(16);
+	scan = PIND;
+  d8:	89 b1       	in	r24, 0x09	; 9
+	result |= (uint16_t)((scan << 2) & 0b11110000);
+	DDRD &= ~(_BV(PORTD7));
+  da:	57 98       	cbi	0x0a, 7	; 10
+	
+	DDRB |= _BV(PORTB0);
+  dc:	20 9a       	sbi	0x04, 0	; 4
+  de:	90 e1       	ldi	r25, 0x10	; 16
+  e0:	9a 95       	dec	r25
+  e2:	f1 f7       	brne	.-4      	; 0xe0 <keyboard_read+0x24>
+	_delay_loop_1(16);
+	scan = PIND;
+  e4:	49 b1       	in	r20, 0x09	; 9
+	DDRD &= ~(_BV(PORTD6));
+	
+	DDRD |= _BV(PORTD7);
+	_delay_loop_1(16);
+	scan = PIND;
+	result |= (uint16_t)((scan << 2) & 0b11110000);
+  e6:	90 e0       	ldi	r25, 0x00	; 0
+  e8:	88 0f       	add	r24, r24
+  ea:	99 1f       	adc	r25, r25
+  ec:	88 0f       	add	r24, r24
+  ee:	99 1f       	adc	r25, r25
+  f0:	80 7f       	andi	r24, 0xF0	; 240
+  f2:	99 27       	eor	r25, r25
+	DDRD &= ~(_BV(PORTD7));
+	
+	DDRB |= _BV(PORTB0);
+	_delay_loop_1(16);
+	scan = PIND;
+	result |= (uint16_t)((scan >> 2) & 0b00001111) << 8;
+  f4:	46 95       	lsr	r20
+  f6:	46 95       	lsr	r20
+  f8:	4f 70       	andi	r20, 0x0F	; 15
+	DDRD &= ~(_BV(PORTD6));
+	
+	DDRD |= _BV(PORTD7);
+	_delay_loop_1(16);
+	scan = PIND;
+	result |= (uint16_t)((scan << 2) & 0b11110000);
+  fa:	94 2b       	or	r25, r20
+	DDRD &= ~(_BV(PORTD7));
+	
+	DDRB |= _BV(PORTB0);
+	_delay_loop_1(16);
+	scan = PIND;
+	result |= (uint16_t)((scan >> 2) & 0b00001111) << 8;
+  fc:	82 2b       	or	r24, r18
+  fe:	93 2b       	or	r25, r19
+	DDRB &= ~(_BV(PORTB0));
+ 100:	20 98       	cbi	0x04, 0	; 4
+	
+	DDRB |= _BV(PORTB1);
+ 102:	21 9a       	sbi	0x04, 1	; 4
+ 104:	20 e1       	ldi	r18, 0x10	; 16
+ 106:	2a 95       	dec	r18
+ 108:	f1 f7       	brne	.-4      	; 0x106 <keyboard_read+0x4a>
+	_delay_loop_1(16);
+	scan = PIND;
+ 10a:	29 b1       	in	r18, 0x09	; 9
+	result |= (uint16_t)((scan << 2) & 0b11110000) << 8;
+ 10c:	30 e0       	ldi	r19, 0x00	; 0
+ 10e:	32 2f       	mov	r19, r18
+ 110:	22 27       	eor	r18, r18
+ 112:	33 0f       	add	r19, r19
+ 114:	33 0f       	add	r19, r19
+ 116:	22 27       	eor	r18, r18
+ 118:	30 7f       	andi	r19, 0xF0	; 240
+ 11a:	82 2b       	or	r24, r18
+ 11c:	93 2b       	or	r25, r19
+	DDRB &= ~(_BV(PORTB1));
+ 11e:	21 98       	cbi	0x04, 1	; 4
+	
+	result ^= 0xFFFF; //inverts the result
+	return result;
+ 120:	80 95       	com	r24
+ 122:	90 95       	com	r25
+ 124:	08 95       	ret
+
+00000126 <main>:
+}
+
+int main(void){
+	uint16_t keys;
+	uint8_t i;
+	ps2_initialize();
+ 126:	0e 94 c5 00 	call	0x18a	; 0x18a <ps2_initialize>
+	keyboard_initialize();
+ 12a:	0e 94 4b 00 	call	0x96	; 0x96 <keyboard_initialize>
+	DDRB |= _BV(PORTB5);
+ 12e:	25 9a       	sbi	0x04, 5	; 4
+	while (1){
+		keys = keyboard_read();
+ 130:	0e 94 5e 00 	call	0xbc	; 0xbc <keyboard_read>
+ 134:	31 e0       	ldi	r19, 0x01	; 1
+		for(i=0; i<16; i++){
+			if(keys & 1){
+ 136:	80 ff       	sbrs	r24, 0
+ 138:	20 c0       	rjmp	.+64     	; 0x17a <main+0x54>
+ 13a:	23 2f       	mov	r18, r19
+	}
+}
+
+void light_count(uint8_t count){
+	do{
+		PORTB |= _BV(PORTB5);
+ 13c:	2d 9a       	sbi	0x05, 5	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 13e:	4f ef       	ldi	r20, 0xFF	; 255
+ 140:	59 e6       	ldi	r21, 0x69	; 105
+ 142:	68 e1       	ldi	r22, 0x18	; 24
+ 144:	41 50       	subi	r20, 0x01	; 1
+ 146:	50 40       	sbci	r21, 0x00	; 0
+ 148:	60 40       	sbci	r22, 0x00	; 0
+ 14a:	e1 f7       	brne	.-8      	; 0x144 <main+0x1e>
+ 14c:	00 c0       	rjmp	.+0      	; 0x14e <main+0x28>
+ 14e:	00 00       	nop
+		_delay_ms(500);
+		PORTB &= ~_BV(PORTB5);
+ 150:	2d 98       	cbi	0x05, 5	; 5
+ 152:	4f ef       	ldi	r20, 0xFF	; 255
+ 154:	59 e6       	ldi	r21, 0x69	; 105
+ 156:	68 e1       	ldi	r22, 0x18	; 24
+ 158:	41 50       	subi	r20, 0x01	; 1
+ 15a:	50 40       	sbci	r21, 0x00	; 0
+ 15c:	60 40       	sbci	r22, 0x00	; 0
+ 15e:	e1 f7       	brne	.-8      	; 0x158 <main+0x32>
+ 160:	00 c0       	rjmp	.+0      	; 0x162 <main+0x3c>
+ 162:	00 00       	nop
+		_delay_ms(500);
+	}while(--count);
+ 164:	21 50       	subi	r18, 0x01	; 1
+ 166:	51 f7       	brne	.-44     	; 0x13c <main+0x16>
+ 168:	2f ef       	ldi	r18, 0xFF	; 255
+ 16a:	4d e3       	ldi	r20, 0x3D	; 61
+ 16c:	59 e4       	ldi	r21, 0x49	; 73
+ 16e:	21 50       	subi	r18, 0x01	; 1
+ 170:	40 40       	sbci	r20, 0x00	; 0
+ 172:	50 40       	sbci	r21, 0x00	; 0
+ 174:	e1 f7       	brne	.-8      	; 0x16e <main+0x48>
+ 176:	00 c0       	rjmp	.+0      	; 0x178 <main+0x52>
+ 178:	00 00       	nop
+			if(keys & 1){
+				light_count(i+1);
+				_delay_ms(1500);
+				//break;
+			}
+			keys >>= 1;
+ 17a:	96 95       	lsr	r25
+ 17c:	87 95       	ror	r24
+ 17e:	21 e0       	ldi	r18, 0x01	; 1
+ 180:	23 0f       	add	r18, r19
+	ps2_initialize();
+	keyboard_initialize();
+	DDRB |= _BV(PORTB5);
+	while (1){
+		keys = keyboard_read();
+		for(i=0; i<16; i++){
+ 182:	21 31       	cpi	r18, 0x11	; 17
+ 184:	a9 f2       	breq	.-86     	; 0x130 <main+0xa>
+ 186:	32 2f       	mov	r19, r18
+ 188:	d6 cf       	rjmp	.-84     	; 0x136 <main+0x10>
+
+0000018a <ps2_initialize>:
+/* half clock initialized for 40us clock */
+uint8_t ps2_half_clock = (40/2*F_CPU/1000000/3);
+
+/* Initializes the interface */
+void ps2_initialize(void){
+	CLOCK_1();
+ 18a:	3a 98       	cbi	0x07, 2	; 7
+ 18c:	42 9a       	sbi	0x08, 2	; 8
+	DATA_1();
+ 18e:	3b 98       	cbi	0x07, 3	; 7
+ 190:	43 9a       	sbi	0x08, 3	; 8
+ 192:	08 95       	ret
+
+00000194 <_exit>:
+ 194:	f8 94       	cli
+
+00000196 <__stop_program>:
+ 196:	ff cf       	rjmp	.-2      	; 0x196 <__stop_program>
