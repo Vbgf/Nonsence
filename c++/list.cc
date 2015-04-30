@@ -46,7 +46,7 @@ public:
 		front->prev_=ptr;
 	}
 	
-	void puch_back(T val){
+	void push_back(T val){
 		Node* ptr = new Node(val);
 		Node* back = head_->prev_;
 		
@@ -128,7 +128,7 @@ int main(){
 	li.pop_back();
 	cout << li.back() << endl;
 	
-	li.puch_back(44);
+	li.push_back(44);
 	cout << li.back() << endl;
 	
 	return 0;
