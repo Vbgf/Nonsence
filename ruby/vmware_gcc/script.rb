@@ -42,8 +42,8 @@ def object_clean(object)
 	res = Net::HTTP.post_form(uri, "trajectory" => "#{object}")
 end
 
-$roots = Net::HTTP.get(URI.parse("http://192.168.0.114:8080/api/sector/#{ARGV[0]}/roots"))
-$objects = Net::HTTP.get(URI.parse("http://192.168.0.114:8080/api/sector/#{ARGV[0]}/objects"))
+$roots = Net::HTTP.get(URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}/roots"))
+$objects = Net::HTTP.get(URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}/objects"))
 $roots = format_roots($roots)
 $objects = format_objects($objects)
 
@@ -59,6 +59,7 @@ while(!$roots.empty?) do
 	$roots.delete_at(0)
 end
 
+puts "Working on sector #{ARGV[0]}"
 puts "Number of obj to be removed: "
 puts $objects.count
 
