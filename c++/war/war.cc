@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iterator>
 #include <ctime>
+#include <unistd.h>
 using namespace std;
 
 #define ALL_CARDS 52
@@ -11,23 +12,27 @@ using namespace std;
 #define CARD_TYPES 13
 #define CARD_TYPES_SIZE 4
 #define WAR_COUNT 3
+#define FILLER_CARDS 2
+
+static const char lookup_ [CARD_TYPES+FILLER_CARDS] =
+{'F', 'F', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A'};
 
 class Card{
-	char power_;
+	int power_;
 public:
-	Card(char power)
+	Card(int power)
 	: power_(power)
 	{}
 	
-	char get() const{
+	int get() const{
 		return power_;
 	}
 	
 	void print() const{
-		cout << "Card: " << power_ << endl;
+		cout << "card: " << lookup_[power_] << endl;
 	}
 
-	void change_power(char power){
+	void change_power(int power){
 		power_ = power;
 	}
 };
@@ -36,21 +41,16 @@ class Cards{
 	vector<Card> cards_;
 public:
 	Cards(){
-		int card_count_ = 0;
+		int card_count_ = ALL_CARDS;
 		int array_[CARD_TYPES];
-		Card card('F');
+		Card card(0);
 		cards_.assign(ALL_CARDS, card);
-		fill_n(array_, CARD_TYPES, CARD_TYPES_SIZE);
-		char lookup_ [CARD_TYPES] =
-		{'2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A'};
-		for(int i=0; i<CARD_TYPES; i++){
-			card_count_ += array_[i];
-		}
+		fill_n(array_, CARD_TYPES+FILLER_CARDS, CARD_TYPES_SIZE);
 		vector<Card>::iterator iterator_ = cards_.begin();
 		while(card_count_){
-			int num = rand() % CARD_TYPES;
+			int num = rand() % CARD_TYPES + FILLER_CARDS;
 			if(array_[num] != 0){
-				(*iterator_).change_power(lookup_[num]);
+				(*iterator_).change_power(num);
 				array_[num] --;
 				card_count_ --;
 				iterator_ ++;
@@ -136,6 +136,11 @@ public:
 		card_count_--;
 		return res;
 	}
+
+	void push_front(Card card){
+		deck_.push_front(card);
+		card_count_++;
+	}
 };
 
 int main(){
@@ -143,30 +148,66 @@ int main(){
 	Deck deck1(all);
 	Deck deck2(all);
 
-	cout << "+===================+" << endl;
-	cout << "Card count deck 1: " << deck1.card_count() << endl;
-	cout << "Card count deck 2: " << deck2.card_count() << endl;
-	cout << "+===================+" << endl;
-
 	vector<Card> board;
 	int turn = 0;
 	while(deck1.card_count() && deck2.card_count()){
 		turn++;
-		board.push_back(deck1.pop_back());
-		board.push_back(deck2.pop_back());
-
-		cout << "+===================+" << endl; 
-		cout << "Card count deck 1: " << deck1.card_count() << endl;
-		cout << "Card count deck 2: " << deck2.card_count() << endl;
+		if(board.empty()){
+			board.push_back(deck1.pop_back());
+			board.push_back(deck2.pop_back());
+			cout << "Player 1 plays ";
+			(*(board.end()-2)).print();
+			cout << "Player 2 plays ";
+			(*(board.end()-1)).print();
+			if((*(board.end()-2)).get() > (*(board.end()-1)).get()){
+				deck1.push_front((*(board.end()-1)).get());
+				deck1.push_front((*(board.end()-2)).get());
+				board.pop_back();
+				board.pop_back();
+			}else if((*(board.end()-2)).get() < (*(board.end()-1)).get()){
+				deck2.push_front((*(board.end()-1)).get());
+				deck2.push_front((*(board.end()-2)).get());
+				board.pop_back();
+				board.pop_back();
+			}
+		}else{
+			cout << "WAR!" << endl;
+			if((deck1.card_count()>=WAR_COUNT) && (deck2.card_count()>=WAR_COUNT)){
+				for(int i=0; i<WAR_COUNT; i++){
+					board.push_back(deck1.pop_back());
+					board.push_back(deck2.pop_back());
+					cout << "Player 1 plays ";
+					(*(board.end()-2)).print();
+					cout << "Player 2 plays ";
+					(*(board.end()-1)).print();
+				}
+				if((*(board.end()-2)).get() > (*(board.end()-1)).get()){
+					while(!board.empty()){
+						deck1.push_front((*(board.end()-1)).get());
+						board.pop_back();
+					}
+				}else if((*(board.end()-2)).get() < (*(board.end()-1)).get()){
+					while(!board.empty()){
+						deck2.push_front((*(board.end()-1)).get());
+						board.pop_back(); 
+					}
+				}
+			}else{
+				break;
+			}
+		}
+		cout << "+======================+" << endl; 
+		cout << "Card count Player 1: " << deck1.card_count() << endl;
+		cout << "Card count Player 2: " << deck2.card_count() << endl;
 		cout << "Board count: " << board.size() << endl;
-		cout << "+===================+" << endl;
-		cout << "player 1 cards: " << (*(board.end()-2)).get() << endl;
-		cout << "player 2 cards: " << (*(board.end()-1)).get() << endl;
+		cout << "+======================+" << endl;
+	}
 
-	//work here, compare and assign
-
-	//change containter from 'A' char to int and make a lookup array if needed
-	// 2->2 10->10 J->11 Q->12 K->13 A->14   then simply compare if(12>10)...
+	cout << "Game finished in " << turn << " turns!"<<endl;
+	if(deck1.card_count()<deck2.card_count()){
+		cout << "Player 2 wins!" << endl;
+	}else{
+		cout << "Player 1 wins!" << endl;
 	}
 	return 0;
 }
