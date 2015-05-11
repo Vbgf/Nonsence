@@ -45,6 +45,9 @@ void ps2_send_byte(uint8_t data){
 		_delay_loop_1(ps2_half_clock);
 	}
 	CLOCK_1();
+	_delay_loop_1(ps2_half_clock);
+	_delay_loop_1(ps2_half_clock);
+	_delay_loop_1(ps2_half_clock);
 }
 
 /* Function reads 1 byte from host + 1 parity bit. It returns data in the LSB and parity in the MSB */
@@ -85,6 +88,9 @@ uint16_t ps2_recieve_byte(void){
 	_delay_loop_1(ps2_half_clock);
 	CLOCK_1();
 	DATA_1();
+	_delay_loop_1(ps2_half_clock);
+	_delay_loop_1(ps2_half_clock);
+	_delay_loop_1(ps2_half_clock);
 	return result;
 }
 

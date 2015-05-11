@@ -2,8 +2,10 @@ Archive member included because of file (symbol)
 
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                              Numpad.o (__tablejump2__)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
-                              PS2_interface.o (__do_copy_data)
+                              Numpad.o (__do_copy_data)
 
 Discarded input sections
 
@@ -19,17 +21,11 @@ Discarded input sections
                 0x00000000       0x1c Numpad.o
  .text.light_count
                 0x00000000       0x2e Numpad.o
+ .text.bit_key_to_scancode
+                0x00000000       0x14 Numpad.o
  .text          0x00000000        0x0 PS2_interface.o
  .data          0x00000000        0x0 PS2_interface.o
  .bss           0x00000000        0x0 PS2_interface.o
- .text.ps2_send_byte
-                0x00000000       0x68 PS2_interface.o
- .text.ps2_recieve_byte
-                0x00000000       0x90 PS2_interface.o
- .text.ps2_check_host
-                0x00000000       0x20 PS2_interface.o
- .data.ps2_half_clock
-                0x00000000        0x1 PS2_interface.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
@@ -46,6 +42,21 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
@@ -181,47 +192,49 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x198
+.text           0x00000000      0x45a
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
-                0x00000068                . = ALIGN (0x2)
-                0x00000068                __trampolines_start = .
+ .progmem.gcc_sw_table.main
+                0x00000068       0x26 Numpad.o
+                0x0000008e                . = ALIGN (0x2)
+                0x0000008e                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000068        0x0 linker stubs
+ .trampolines   0x0000008e        0x0 linker stubs
  *(.trampolines*)
-                0x00000068                __trampolines_end = .
+                0x0000008e                __trampolines_end = .
  *(.progmem*)
-                0x00000068                . = ALIGN (0x2)
+                0x0000008e                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000068                __ctors_start = .
+                0x0000008e                __ctors_start = .
  *(.ctors)
-                0x00000068                __ctors_end = .
-                0x00000068                __dtors_start = .
+                0x0000008e                __ctors_end = .
+                0x0000008e                __dtors_start = .
  *(.dtors)
-                0x00000068                __dtors_end = .
+                0x0000008e                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000068        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-                0x00000068                __init
+ .init0         0x0000008e        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                0x0000008e                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000068        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .init2         0x0000008e        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000074       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
-                0x00000074                __do_copy_data
+ .init4         0x0000009a       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x0000009a                __do_copy_data
  *(.init4)
  *(.init5)
  *(.init5)
@@ -232,55 +245,67 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000008a        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .init9         0x000000b0        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
  *(.init9)
  *(.text)
- .text          0x00000092        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-                0x00000092                __vector_22
-                0x00000092                __vector_1
-                0x00000092                __vector_24
-                0x00000092                __vector_12
-                0x00000092                __bad_interrupt
-                0x00000092                __vector_6
-                0x00000092                __vector_3
-                0x00000092                __vector_23
-                0x00000092                __vector_25
-                0x00000092                __vector_11
-                0x00000092                __vector_13
-                0x00000092                __vector_17
-                0x00000092                __vector_19
-                0x00000092                __vector_7
-                0x00000092                __vector_5
-                0x00000092                __vector_4
-                0x00000092                __vector_9
-                0x00000092                __vector_2
-                0x00000092                __vector_21
-                0x00000092                __vector_15
-                0x00000092                __vector_8
-                0x00000092                __vector_14
-                0x00000092                __vector_10
-                0x00000092                __vector_16
-                0x00000092                __vector_18
-                0x00000092                __vector_20
-                0x00000096                . = ALIGN (0x2)
+ .text          0x000000b8        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                0x000000b8                __vector_22
+                0x000000b8                __vector_1
+                0x000000b8                __vector_24
+                0x000000b8                __vector_12
+                0x000000b8                __bad_interrupt
+                0x000000b8                __vector_6
+                0x000000b8                __vector_3
+                0x000000b8                __vector_23
+                0x000000b8                __vector_25
+                0x000000b8                __vector_11
+                0x000000b8                __vector_13
+                0x000000b8                __vector_17
+                0x000000b8                __vector_19
+                0x000000b8                __vector_7
+                0x000000b8                __vector_5
+                0x000000b8                __vector_4
+                0x000000b8                __vector_9
+                0x000000b8                __vector_2
+                0x000000b8                __vector_21
+                0x000000b8                __vector_15
+                0x000000b8                __vector_8
+                0x000000b8                __vector_14
+                0x000000b8                __vector_10
+                0x000000b8                __vector_16
+                0x000000b8                __vector_18
+                0x000000b8                __vector_20
+                0x000000bc                . = ALIGN (0x2)
  *(.text.*)
  .text.keyboard_initialize
-                0x00000096       0x26 keyboard.o
-                0x00000096                keyboard_initialize
+                0x000000bc       0x26 keyboard.o
+                0x000000bc                keyboard_initialize
  .text.keyboard_read
-                0x000000bc       0x6a keyboard.o
-                0x000000bc                keyboard_read
+                0x000000e2       0x6a keyboard.o
+                0x000000e2                keyboard_read
  .text.startup.main
-                0x00000126       0x64 Numpad.o
-                0x00000126                main
+                0x0000014c      0x1b4 Numpad.o
+                0x0000014c                main
  .text.ps2_initialize
-                0x0000018a        0xa PS2_interface.o
-                0x0000018a                ps2_initialize
-                0x00000194                . = ALIGN (0x2)
+                0x00000300        0xa PS2_interface.o
+                0x00000300                ps2_initialize
+ .text.ps2_send_byte
+                0x0000030a       0x7c PS2_interface.o
+                0x0000030a                ps2_send_byte
+ .text.ps2_recieve_byte
+                0x00000386       0xa4 PS2_interface.o
+                0x00000386                ps2_recieve_byte
+ .text.ps2_check_host
+                0x0000042a       0x20 PS2_interface.o
+                0x0000042a                ps2_check_host
+ .text.libgcc   0x0000044a        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x0000044a                __tablejump2__
+                0x0000044e                __tablejump__
+                0x00000456                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000194        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00000194                _exit
-                0x00000194                exit
+ .fini9         0x00000456        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000456                _exit
+                0x00000456                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -299,36 +324,42 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000194        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000456        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000198                _etext = .
+                0x0000045a                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000198
+.data           0x00800100       0x12 load address 0x0000045a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data.ps2_half_clock
+                0x00800100        0x1 PS2_interface.o
+                0x00800100                ps2_half_clock
  *(.rodata)
  *(.rodata*)
+ .rodata.scancode.1613
+                0x00800101       0x10 Numpad.o
  *(.gnu.linkonce.d*)
-                0x00800100                . = ALIGN (0x2)
-                0x00800100                _edata = .
-                0x00800100                PROVIDE (__data_end, .)
+                0x00800112                . = ALIGN (0x2)
+ *fill*         0x00800111        0x1 
+                0x00800112                _edata = .
+                0x00800112                PROVIDE (__data_end, .)
 
-.bss            0x00800100        0x0
-                0x00800100                PROVIDE (__bss_start, .)
+.bss            0x00800112        0x0
+                0x00800112                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x00800100                PROVIDE (__bss_end, .)
-                0x00000198                __data_load_start = LOADADDR (.data)
-                0x00000198                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800112                PROVIDE (__bss_end, .)
+                0x0000045a                __data_load_start = LOADADDR (.data)
+                0x0000046c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800060        0x0
-                0x00800060                PROVIDE (__noinit_start, .)
+.noinit         0x00800112        0x0
+                0x00800112                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800060                PROVIDE (__noinit_end, .)
-                0x00800060                _end = .
-                0x00800060                PROVIDE (__heap_start, .)
+                0x00800112                PROVIDE (__noinit_end, .)
+                0x00800112                _end = .
+                0x00800112                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -389,56 +420,56 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x90
+.debug_aranges  0x00000000       0x98
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 keyboard.o
  .debug_aranges
-                0x00000028       0x30 Numpad.o
+                0x00000028       0x38 Numpad.o
  .debug_aranges
-                0x00000058       0x38 PS2_interface.o
+                0x00000060       0x38 PS2_interface.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x735
+.debug_info     0x00000000      0xadd
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x150 keyboard.o
- .debug_info    0x00000150      0x327 Numpad.o
- .debug_info    0x00000477      0x2be PS2_interface.o
+ .debug_info    0x00000150      0x621 Numpad.o
+ .debug_info    0x00000771      0x36c PS2_interface.o
 
-.debug_abbrev   0x00000000      0x34f
+.debug_abbrev   0x00000000      0x3d8
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xc1 keyboard.o
- .debug_abbrev  0x000000c1      0x182 Numpad.o
- .debug_abbrev  0x00000243      0x10c PS2_interface.o
+ .debug_abbrev  0x000000c1      0x20b Numpad.o
+ .debug_abbrev  0x000002cc      0x10c PS2_interface.o
 
-.debug_line     0x00000000      0x541
+.debug_line     0x00000000      0x5c8
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x176 keyboard.o
- .debug_line    0x00000176      0x1e1 Numpad.o
- .debug_line    0x00000357      0x1ea PS2_interface.o
+ .debug_line    0x00000176      0x260 Numpad.o
+ .debug_line    0x000003d6      0x1f2 PS2_interface.o
 
-.debug_frame    0x00000000       0xcc
+.debug_frame    0x00000000       0xdc
  *(.debug_frame)
  .debug_frame   0x00000000       0x34 keyboard.o
- .debug_frame   0x00000034       0x44 Numpad.o
- .debug_frame   0x00000078       0x54 PS2_interface.o
+ .debug_frame   0x00000034       0x54 Numpad.o
+ .debug_frame   0x00000088       0x54 PS2_interface.o
 
-.debug_str      0x00000000      0x24b
+.debug_str      0x00000000      0x2b1
  *(.debug_str)
  .debug_str     0x00000000      0x163 keyboard.o
                                 0x197 (size before relaxing)
- .debug_str     0x00000163       0x8a Numpad.o
-                                0x211 (size before relaxing)
- .debug_str     0x000001ed       0x5e PS2_interface.o
+ .debug_str     0x00000163      0x11e Numpad.o
+                                0x2ae (size before relaxing)
+ .debug_str     0x00000281       0x30 PS2_interface.o
                                 0x1d3 (size before relaxing)
 
-.debug_loc      0x00000000      0x4ec
+.debug_loc      0x00000000      0x920
  *(.debug_loc)
  .debug_loc     0x00000000       0xe2 keyboard.o
- .debug_loc     0x000000e2      0x1bc Numpad.o
- .debug_loc     0x0000029e      0x24e PS2_interface.o
+ .debug_loc     0x000000e2      0x568 Numpad.o
+ .debug_loc     0x0000064a      0x2d6 PS2_interface.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -458,11 +489,11 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x60
+.debug_ranges   0x00000000       0x68
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 keyboard.o
- .debug_ranges  0x00000018       0x20 Numpad.o
- .debug_ranges  0x00000038       0x28 PS2_interface.o
+ .debug_ranges  0x00000018       0x28 Numpad.o
+ .debug_ranges  0x00000040       0x28 PS2_interface.o
 
 .debug_macro
  *(.debug_macro)

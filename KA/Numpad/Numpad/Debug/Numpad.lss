@@ -3,337 +3,1037 @@ Numpad.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000198  00000000  00000000  00000054  2**1
+  0 .data         00000012  00800100  0000045a  000004ce  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000045a  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      00000030  00000000  00000000  000001ec  2**0
+  2 .comment      00000030  00000000  00000000  000004e0  2**0
                   CONTENTS, READONLY
-  2 .debug_aranges 00000090  00000000  00000000  0000021c  2**0
+  3 .debug_aranges 00000098  00000000  00000000  00000510  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   00000735  00000000  00000000  000002ac  2**0
+  4 .debug_info   00000add  00000000  00000000  000005a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 0000034f  00000000  00000000  000009e1  2**0
+  5 .debug_abbrev 000003d8  00000000  00000000  00001085  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   00000541  00000000  00000000  00000d30  2**0
+  6 .debug_line   000005c8  00000000  00000000  0000145d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  000000cc  00000000  00000000  00001274  2**2
+  7 .debug_frame  000000dc  00000000  00000000  00001a28  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000024b  00000000  00000000  00001340  2**0
+  8 .debug_str    000002b1  00000000  00000000  00001b04  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    000004ec  00000000  00000000  0000158b  2**0
+  9 .debug_loc    00000920  00000000  00000000  00001db5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges 00000060  00000000  00000000  00001a77  2**0
+ 10 .debug_ranges 00000068  00000000  00000000  000026d5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-   8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   0:	0c 94 47 00 	jmp	0x8e	; 0x8e <__ctors_end>
+   4:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+   8:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+   c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  10:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  14:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  18:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  1c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  20:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  24:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  28:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  2c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  30:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  34:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  38:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  3c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  40:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  44:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  48:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  4c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  50:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  54:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  58:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  5c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  60:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  64:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  68:	61 01       	movw	r12, r2
+  6a:	5b 01       	movw	r10, r22
+  6c:	ef 00       	.word	0x00ef	; ????
+  6e:	42 01       	movw	r8, r4
+  70:	ef 00       	.word	0x00ef	; ????
+  72:	36 01       	movw	r6, r12
+  74:	1d 01       	movw	r2, r26
+  76:	17 01       	movw	r2, r14
+  78:	0c 01       	movw	r0, r24
+  7a:	ef 00       	.word	0x00ef	; ????
+  7c:	ef 00       	.word	0x00ef	; ????
+  7e:	ef 00       	.word	0x00ef	; ????
+  80:	ef 00       	.word	0x00ef	; ????
+  82:	ef 00       	.word	0x00ef	; ????
+  84:	ef 00       	.word	0x00ef	; ????
+  86:	ef 00       	.word	0x00ef	; ????
+  88:	ef 00       	.word	0x00ef	; ????
+  8a:	05 01       	movw	r0, r10
+  8c:	f8 00       	.word	0x00f8	; ????
 
-00000068 <__ctors_end>:
-  68:	11 24       	eor	r1, r1
-  6a:	1f be       	out	0x3f, r1	; 63
-  6c:	cf ef       	ldi	r28, 0xFF	; 255
-  6e:	d8 e0       	ldi	r29, 0x08	; 8
-  70:	de bf       	out	0x3e, r29	; 62
-  72:	cd bf       	out	0x3d, r28	; 61
+0000008e <__ctors_end>:
+  8e:	11 24       	eor	r1, r1
+  90:	1f be       	out	0x3f, r1	; 63
+  92:	cf ef       	ldi	r28, 0xFF	; 255
+  94:	d8 e0       	ldi	r29, 0x08	; 8
+  96:	de bf       	out	0x3e, r29	; 62
+  98:	cd bf       	out	0x3d, r28	; 61
 
-00000074 <__do_copy_data>:
-  74:	11 e0       	ldi	r17, 0x01	; 1
-  76:	a0 e0       	ldi	r26, 0x00	; 0
-  78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e8 e9       	ldi	r30, 0x98	; 152
-  7c:	f1 e0       	ldi	r31, 0x01	; 1
-  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
-  80:	05 90       	lpm	r0, Z+
-  82:	0d 92       	st	X+, r0
-  84:	a0 30       	cpi	r26, 0x00	; 0
-  86:	b1 07       	cpc	r27, r17
-  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
-  8a:	0e 94 93 00 	call	0x126	; 0x126 <main>
-  8e:	0c 94 ca 00 	jmp	0x194	; 0x194 <_exit>
+0000009a <__do_copy_data>:
+  9a:	11 e0       	ldi	r17, 0x01	; 1
+  9c:	a0 e0       	ldi	r26, 0x00	; 0
+  9e:	b1 e0       	ldi	r27, 0x01	; 1
+  a0:	ea e5       	ldi	r30, 0x5A	; 90
+  a2:	f4 e0       	ldi	r31, 0x04	; 4
+  a4:	02 c0       	rjmp	.+4      	; 0xaa <__do_copy_data+0x10>
+  a6:	05 90       	lpm	r0, Z+
+  a8:	0d 92       	st	X+, r0
+  aa:	a2 31       	cpi	r26, 0x12	; 18
+  ac:	b1 07       	cpc	r27, r17
+  ae:	d9 f7       	brne	.-10     	; 0xa6 <__do_copy_data+0xc>
+  b0:	0e 94 a6 00 	call	0x14c	; 0x14c <main>
+  b4:	0c 94 2b 02 	jmp	0x456	; 0x456 <_exit>
 
-00000092 <__bad_interrupt>:
-  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+000000b8 <__bad_interrupt>:
+  b8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-00000096 <keyboard_initialize>:
+000000bc <keyboard_initialize>:
 */
 
 /* Initializes the ports for the keyboard */
 void keyboard_initialize(void){
 	/* Rows will be input with pull-up*/
 	DDRD &= ~(_BV(PORTD2) | _BV(PORTD3) | _BV(PORTD4) | _BV(PORTD5));
-  96:	8a b1       	in	r24, 0x0a	; 10
-  98:	83 7c       	andi	r24, 0xC3	; 195
-  9a:	8a b9       	out	0x0a, r24	; 10
+  bc:	8a b1       	in	r24, 0x0a	; 10
+  be:	83 7c       	andi	r24, 0xC3	; 195
+  c0:	8a b9       	out	0x0a, r24	; 10
 	PORTD |= (_BV(PORTD2) | _BV(PORTD3) | _BV(PORTD4) | _BV(PORTD5));
-  9c:	8b b1       	in	r24, 0x0b	; 11
-  9e:	8c 63       	ori	r24, 0x3C	; 60
-  a0:	8b b9       	out	0x0b, r24	; 11
+  c2:	8b b1       	in	r24, 0x0b	; 11
+  c4:	8c 63       	ori	r24, 0x3C	; 60
+  c6:	8b b9       	out	0x0b, r24	; 11
 	
 	/* Columns will be input without pull-up*/
 	DDRD &= ~(_BV(PORTD6) | _BV(PORTD7));
-  a2:	8a b1       	in	r24, 0x0a	; 10
-  a4:	8f 73       	andi	r24, 0x3F	; 63
-  a6:	8a b9       	out	0x0a, r24	; 10
+  c8:	8a b1       	in	r24, 0x0a	; 10
+  ca:	8f 73       	andi	r24, 0x3F	; 63
+  cc:	8a b9       	out	0x0a, r24	; 10
 	PORTD &= ~(_BV(PORTD6) | _BV(PORTD7));
-  a8:	8b b1       	in	r24, 0x0b	; 11
-  aa:	8f 73       	andi	r24, 0x3F	; 63
-  ac:	8b b9       	out	0x0b, r24	; 11
+  ce:	8b b1       	in	r24, 0x0b	; 11
+  d0:	8f 73       	andi	r24, 0x3F	; 63
+  d2:	8b b9       	out	0x0b, r24	; 11
 	DDRB &= ~(_BV(PORTB0) | _BV(PORTB1));
-  ae:	84 b1       	in	r24, 0x04	; 4
-  b0:	8c 7f       	andi	r24, 0xFC	; 252
-  b2:	84 b9       	out	0x04, r24	; 4
+  d4:	84 b1       	in	r24, 0x04	; 4
+  d6:	8c 7f       	andi	r24, 0xFC	; 252
+  d8:	84 b9       	out	0x04, r24	; 4
 	PORTB &= ~(_BV(PORTB0) | _BV(PORTB1));
-  b4:	85 b1       	in	r24, 0x05	; 5
-  b6:	8c 7f       	andi	r24, 0xFC	; 252
-  b8:	85 b9       	out	0x05, r24	; 5
-  ba:	08 95       	ret
+  da:	85 b1       	in	r24, 0x05	; 5
+  dc:	8c 7f       	andi	r24, 0xFC	; 252
+  de:	85 b9       	out	0x05, r24	; 5
+  e0:	08 95       	ret
 
-000000bc <keyboard_read>:
+000000e2 <keyboard_read>:
 
 /* Reads all 16 keys from the keyboard and returns a uint16_t */
 uint16_t keyboard_read(void){
 	uint16_t result;
 	uint8_t scan;
 	DDRD |= _BV(PORTD6);
-  bc:	56 9a       	sbi	0x0a, 6	; 10
+  e2:	56 9a       	sbi	0x0a, 6	; 10
     can be achieved.
 */
 void
 _delay_loop_1(uint8_t __count)
 {
 	__asm__ volatile (
-  be:	80 e1       	ldi	r24, 0x10	; 16
-  c0:	8a 95       	dec	r24
-  c2:	f1 f7       	brne	.-4      	; 0xc0 <keyboard_read+0x4>
+  e4:	80 e1       	ldi	r24, 0x10	; 16
+  e6:	8a 95       	dec	r24
+  e8:	f1 f7       	brne	.-4      	; 0xe6 <keyboard_read+0x4>
 	_delay_loop_1(16);
 	scan = PIND;
-  c4:	29 b1       	in	r18, 0x09	; 9
+  ea:	29 b1       	in	r18, 0x09	; 9
 	result = (uint16_t)((scan >> 2) & 0b00001111);
-  c6:	26 95       	lsr	r18
-  c8:	26 95       	lsr	r18
-  ca:	2f 70       	andi	r18, 0x0F	; 15
-  cc:	30 e0       	ldi	r19, 0x00	; 0
+  ec:	26 95       	lsr	r18
+  ee:	26 95       	lsr	r18
+  f0:	2f 70       	andi	r18, 0x0F	; 15
+  f2:	30 e0       	ldi	r19, 0x00	; 0
 	DDRD &= ~(_BV(PORTD6));
-  ce:	56 98       	cbi	0x0a, 6	; 10
+  f4:	56 98       	cbi	0x0a, 6	; 10
 	
 	DDRD |= _BV(PORTD7);
-  d0:	57 9a       	sbi	0x0a, 7	; 10
-  d2:	80 e1       	ldi	r24, 0x10	; 16
-  d4:	8a 95       	dec	r24
-  d6:	f1 f7       	brne	.-4      	; 0xd4 <keyboard_read+0x18>
+  f6:	57 9a       	sbi	0x0a, 7	; 10
+  f8:	80 e1       	ldi	r24, 0x10	; 16
+  fa:	8a 95       	dec	r24
+  fc:	f1 f7       	brne	.-4      	; 0xfa <keyboard_read+0x18>
 	_delay_loop_1(16);
 	scan = PIND;
-  d8:	89 b1       	in	r24, 0x09	; 9
+  fe:	89 b1       	in	r24, 0x09	; 9
 	result |= (uint16_t)((scan << 2) & 0b11110000);
 	DDRD &= ~(_BV(PORTD7));
-  da:	57 98       	cbi	0x0a, 7	; 10
+ 100:	57 98       	cbi	0x0a, 7	; 10
 	
 	DDRB |= _BV(PORTB0);
-  dc:	20 9a       	sbi	0x04, 0	; 4
-  de:	90 e1       	ldi	r25, 0x10	; 16
-  e0:	9a 95       	dec	r25
-  e2:	f1 f7       	brne	.-4      	; 0xe0 <keyboard_read+0x24>
+ 102:	20 9a       	sbi	0x04, 0	; 4
+ 104:	90 e1       	ldi	r25, 0x10	; 16
+ 106:	9a 95       	dec	r25
+ 108:	f1 f7       	brne	.-4      	; 0x106 <keyboard_read+0x24>
 	_delay_loop_1(16);
 	scan = PIND;
-  e4:	49 b1       	in	r20, 0x09	; 9
+ 10a:	49 b1       	in	r20, 0x09	; 9
 	DDRD &= ~(_BV(PORTD6));
 	
 	DDRD |= _BV(PORTD7);
 	_delay_loop_1(16);
 	scan = PIND;
 	result |= (uint16_t)((scan << 2) & 0b11110000);
-  e6:	90 e0       	ldi	r25, 0x00	; 0
-  e8:	88 0f       	add	r24, r24
-  ea:	99 1f       	adc	r25, r25
-  ec:	88 0f       	add	r24, r24
-  ee:	99 1f       	adc	r25, r25
-  f0:	80 7f       	andi	r24, 0xF0	; 240
-  f2:	99 27       	eor	r25, r25
-	DDRD &= ~(_BV(PORTD7));
-	
-	DDRB |= _BV(PORTB0);
-	_delay_loop_1(16);
-	scan = PIND;
-	result |= (uint16_t)((scan >> 2) & 0b00001111) << 8;
-  f4:	46 95       	lsr	r20
-  f6:	46 95       	lsr	r20
-  f8:	4f 70       	andi	r20, 0x0F	; 15
-	DDRD &= ~(_BV(PORTD6));
-	
-	DDRD |= _BV(PORTD7);
-	_delay_loop_1(16);
-	scan = PIND;
-	result |= (uint16_t)((scan << 2) & 0b11110000);
-  fa:	94 2b       	or	r25, r20
+ 10c:	90 e0       	ldi	r25, 0x00	; 0
+ 10e:	88 0f       	add	r24, r24
+ 110:	99 1f       	adc	r25, r25
+ 112:	88 0f       	add	r24, r24
+ 114:	99 1f       	adc	r25, r25
+ 116:	80 7f       	andi	r24, 0xF0	; 240
+ 118:	99 27       	eor	r25, r25
 	DDRD &= ~(_BV(PORTD7));
 	
 	DDRB |= _BV(PORTB0);
 	_delay_loop_1(16);
 	scan = PIND;
 	result |= (uint16_t)((scan >> 2) & 0b00001111) << 8;
-  fc:	82 2b       	or	r24, r18
-  fe:	93 2b       	or	r25, r19
+ 11a:	46 95       	lsr	r20
+ 11c:	46 95       	lsr	r20
+ 11e:	4f 70       	andi	r20, 0x0F	; 15
+	DDRD &= ~(_BV(PORTD6));
+	
+	DDRD |= _BV(PORTD7);
+	_delay_loop_1(16);
+	scan = PIND;
+	result |= (uint16_t)((scan << 2) & 0b11110000);
+ 120:	94 2b       	or	r25, r20
+	DDRD &= ~(_BV(PORTD7));
+	
+	DDRB |= _BV(PORTB0);
+	_delay_loop_1(16);
+	scan = PIND;
+	result |= (uint16_t)((scan >> 2) & 0b00001111) << 8;
+ 122:	82 2b       	or	r24, r18
+ 124:	93 2b       	or	r25, r19
 	DDRB &= ~(_BV(PORTB0));
- 100:	20 98       	cbi	0x04, 0	; 4
+ 126:	20 98       	cbi	0x04, 0	; 4
 	
 	DDRB |= _BV(PORTB1);
- 102:	21 9a       	sbi	0x04, 1	; 4
- 104:	20 e1       	ldi	r18, 0x10	; 16
- 106:	2a 95       	dec	r18
- 108:	f1 f7       	brne	.-4      	; 0x106 <keyboard_read+0x4a>
+ 128:	21 9a       	sbi	0x04, 1	; 4
+ 12a:	20 e1       	ldi	r18, 0x10	; 16
+ 12c:	2a 95       	dec	r18
+ 12e:	f1 f7       	brne	.-4      	; 0x12c <keyboard_read+0x4a>
 	_delay_loop_1(16);
 	scan = PIND;
- 10a:	29 b1       	in	r18, 0x09	; 9
+ 130:	29 b1       	in	r18, 0x09	; 9
 	result |= (uint16_t)((scan << 2) & 0b11110000) << 8;
- 10c:	30 e0       	ldi	r19, 0x00	; 0
- 10e:	32 2f       	mov	r19, r18
- 110:	22 27       	eor	r18, r18
- 112:	33 0f       	add	r19, r19
- 114:	33 0f       	add	r19, r19
- 116:	22 27       	eor	r18, r18
- 118:	30 7f       	andi	r19, 0xF0	; 240
- 11a:	82 2b       	or	r24, r18
- 11c:	93 2b       	or	r25, r19
+ 132:	30 e0       	ldi	r19, 0x00	; 0
+ 134:	32 2f       	mov	r19, r18
+ 136:	22 27       	eor	r18, r18
+ 138:	33 0f       	add	r19, r19
+ 13a:	33 0f       	add	r19, r19
+ 13c:	22 27       	eor	r18, r18
+ 13e:	30 7f       	andi	r19, 0xF0	; 240
+ 140:	82 2b       	or	r24, r18
+ 142:	93 2b       	or	r25, r19
 	DDRB &= ~(_BV(PORTB1));
- 11e:	21 98       	cbi	0x04, 1	; 4
+ 144:	21 98       	cbi	0x04, 1	; 4
 	
 	result ^= 0xFFFF; //inverts the result
 	return result;
- 120:	80 95       	com	r24
- 122:	90 95       	com	r25
- 124:	08 95       	ret
+ 146:	80 95       	com	r24
+ 148:	90 95       	com	r25
+ 14a:	08 95       	ret
 
-00000126 <main>:
+0000014c <main>:
+	uint8_t TRR;
+	uint8_t enabled = 1;
+	uint8_t LED;
+	uint16_t timeout;
+	
+	ps2_initialize();
+ 14c:	0e 94 80 01 	call	0x300	; 0x300 <ps2_initialize>
+	keyboard_initialize();
+ 150:	0e 94 5e 00 	call	0xbc	; 0xbc <keyboard_initialize>
+	DDRB |= _BV(PORTB5);
+ 154:	25 9a       	sbi	0x04, 5	; 4
+	uint16_t recieved;
+	uint16_t last_keys_state = 0;
+	uint8_t last_change = 0;
+	uint8_t scancode = 0x02;
+	uint8_t TRR;
+	uint8_t enabled = 1;
+ 156:	11 e0       	ldi	r17, 0x01	; 1
+int main(void){
+	uint16_t keys = 0;
+	uint16_t recieved;
+	uint16_t last_keys_state = 0;
+	uint8_t last_change = 0;
+	uint8_t scancode = 0x02;
+ 158:	d2 e0       	ldi	r29, 0x02	; 2
+ 15a:	bd 2e       	mov	r11, r29
+
+int main(void){
+	uint16_t keys = 0;
+	uint16_t recieved;
+	uint16_t last_keys_state = 0;
+	uint8_t last_change = 0;
+ 15c:	a1 2c       	mov	r10, r1
 }
 
 int main(void){
-	uint16_t keys;
-	uint8_t i;
+	uint16_t keys = 0;
+	uint16_t recieved;
+	uint16_t last_keys_state = 0;
+ 15e:	e1 2c       	mov	r14, r1
+ 160:	f1 2c       	mov	r15, r1
 	ps2_initialize();
- 126:	0e 94 c5 00 	call	0x18a	; 0x18a <ps2_initialize>
 	keyboard_initialize();
- 12a:	0e 94 4b 00 	call	0x96	; 0x96 <keyboard_initialize>
 	DDRB |= _BV(PORTB5);
- 12e:	25 9a       	sbi	0x04, 5	; 4
-	while (1){
-		keys = keyboard_read();
- 130:	0e 94 5e 00 	call	0xbc	; 0xbc <keyboard_read>
- 134:	31 e0       	ldi	r19, 0x01	; 1
-		for(i=0; i<16; i++){
-			if(keys & 1){
- 136:	80 ff       	sbrs	r24, 0
- 138:	20 c0       	rjmp	.+64     	; 0x17a <main+0x54>
- 13a:	23 2f       	mov	r18, r19
-	}
-}
 
-void light_count(uint8_t count){
-	do{
-		PORTB |= _BV(PORTB5);
- 13c:	2d 9a       	sbi	0x05, 5	; 5
+	while (1){
+		if(ps2_check_host()){
+ 162:	0e 94 15 02 	call	0x42a	; 0x42a <ps2_check_host>
+ 166:	81 11       	cpse	r24, r1
+ 168:	31 c0       	rjmp	.+98     	; 0x1cc <main+0x80>
+				default:
+					last_change = 0x00;
+					ps2_send_byte(0x00);
+			}
+		}
+		if(enabled){
+ 16a:	11 23       	and	r17, r17
+ 16c:	d1 f3       	breq	.-12     	; 0x162 <main+0x16>
+			keys = keyboard_read();
+ 16e:	0e 94 71 00 	call	0xe2	; 0xe2 <keyboard_read>
+ 172:	6c 01       	movw	r12, r24
+			if(keys != last_keys_state){
+ 174:	8e 15       	cp	r24, r14
+ 176:	9f 05       	cpc	r25, r15
+ 178:	21 f1       	breq	.+72     	; 0x1c2 <main+0x76>
+				uint8_t key;
+				uint16_t mask = 1;
+				last_keys_state = keys ^ last_keys_state;
+ 17a:	e8 26       	eor	r14, r24
+ 17c:	f9 26       	eor	r15, r25
+ 17e:	01 e0       	ldi	r16, 0x01	; 1
+ 180:	11 e0       	ldi	r17, 0x01	; 1
+		}
+		if(enabled){
+			keys = keyboard_read();
+			if(keys != last_keys_state){
+				uint8_t key;
+				uint16_t mask = 1;
+ 182:	c1 e0       	ldi	r28, 0x01	; 1
+ 184:	d0 e0       	ldi	r29, 0x00	; 0
+ 186:	0d c0       	rjmp	.+26     	; 0x1a2 <main+0x56>
+						//change
+						if(!(keys & mask)){
+							ps2_send_byte(0xF0);
+							PORTB &= ~_BV(PORTB5);
+						}else{
+							PORTB |= _BV(PORTB5);
+ 188:	2d 9a       	sbi	0x05, 5	; 5
+						}
+						ps2_send_byte(bit_key_to_scancode(key));
+ 18a:	f8 01       	movw	r30, r16
+ 18c:	80 81       	ld	r24, Z
+ 18e:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					}
+					mask <<= 1;
+ 192:	cc 0f       	add	r28, r28
+ 194:	dd 1f       	adc	r29, r29
+ 196:	0f 5f       	subi	r16, 0xFF	; 255
+ 198:	1f 4f       	sbci	r17, 0xFF	; 255
+			keys = keyboard_read();
+			if(keys != last_keys_state){
+				uint8_t key;
+				uint16_t mask = 1;
+				last_keys_state = keys ^ last_keys_state;
+				for(key=0; key<16; key++){
+ 19a:	f1 e0       	ldi	r31, 0x01	; 1
+ 19c:	01 31       	cpi	r16, 0x11	; 17
+ 19e:	1f 07       	cpc	r17, r31
+ 1a0:	79 f0       	breq	.+30     	; 0x1c0 <main+0x74>
+					if(last_keys_state & mask){
+ 1a2:	9e 01       	movw	r18, r28
+ 1a4:	2e 21       	and	r18, r14
+ 1a6:	3f 21       	and	r19, r15
+ 1a8:	23 2b       	or	r18, r19
+ 1aa:	99 f3       	breq	.-26     	; 0x192 <main+0x46>
+						//change
+						if(!(keys & mask)){
+ 1ac:	9e 01       	movw	r18, r28
+ 1ae:	2c 21       	and	r18, r12
+ 1b0:	3d 21       	and	r19, r13
+ 1b2:	23 2b       	or	r18, r19
+ 1b4:	49 f7       	brne	.-46     	; 0x188 <main+0x3c>
+							ps2_send_byte(0xF0);
+ 1b6:	80 ef       	ldi	r24, 0xF0	; 240
+ 1b8:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+							PORTB &= ~_BV(PORTB5);
+ 1bc:	2d 98       	cbi	0x05, 5	; 5
+ 1be:	e5 cf       	rjmp	.-54     	; 0x18a <main+0x3e>
+ 1c0:	76 01       	movw	r14, r12
+ 1c2:	11 e0       	ldi	r17, 0x01	; 1
+	ps2_initialize();
+	keyboard_initialize();
+	DDRB |= _BV(PORTB5);
+
+	while (1){
+		if(ps2_check_host()){
+ 1c4:	0e 94 15 02 	call	0x42a	; 0x42a <ps2_check_host>
+ 1c8:	88 23       	and	r24, r24
+ 1ca:	79 f2       	breq	.-98     	; 0x16a <main+0x1e>
+			recieved = ps2_recieve_byte();
+ 1cc:	0e 94 c3 01 	call	0x386	; 0x386 <ps2_recieve_byte>
+			//TODO check parity
+			switch (recieved & 0xFF){
+ 1d0:	99 27       	eor	r25, r25
+ 1d2:	fc 01       	movw	r30, r24
+ 1d4:	ed 5e       	subi	r30, 0xED	; 237
+ 1d6:	f1 09       	sbc	r31, r1
+ 1d8:	e3 31       	cpi	r30, 0x13	; 19
+ 1da:	f1 05       	cpc	r31, r1
+ 1dc:	28 f0       	brcs	.+10     	; 0x1e8 <main+0x9c>
+					last_change = 0xAA;
+					ps2_send_byte(0xAA);
+					break;
+				default:
+					last_change = 0x00;
+					ps2_send_byte(0x00);
+ 1de:	80 e0       	ldi	r24, 0x00	; 0
+ 1e0:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					LED = 0;
+					last_change = 0xAA;
+					ps2_send_byte(0xAA);
+					break;
+				default:
+					last_change = 0x00;
+ 1e4:	a1 2c       	mov	r10, r1
+ 1e6:	c1 cf       	rjmp	.-126    	; 0x16a <main+0x1e>
+
+	while (1){
+		if(ps2_check_host()){
+			recieved = ps2_recieve_byte();
+			//TODO check parity
+			switch (recieved & 0xFF){
+ 1e8:	ec 5c       	subi	r30, 0xCC	; 204
+ 1ea:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ec:	0c 94 25 02 	jmp	0x44a	; 0x44a <__tablejump2__>
+					ps2_send_byte(0xFA);
+					ps2_send_byte(last_change);
+					break;
+				// reset				
+				case 0xFF:
+					ps2_send_byte(0xFA);
+ 1f0:	8a ef       	ldi	r24, 0xFA	; 250
+ 1f2:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					scancode = 0x02;
+					TRR = 0;
+					enabled = 1;
+					LED = 0;
+					last_change = 0xAA;
+					ps2_send_byte(0xAA);
+ 1f6:	8a ea       	ldi	r24, 0xAA	; 170
+ 1f8:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					ps2_send_byte(0xFA);
+					keys = 0;
+					recieved = 0;
+					last_keys_state = 0;
+					last_change = 0;
+					scancode = 0x02;
+ 1fc:	22 e0       	ldi	r18, 0x02	; 2
+ 1fe:	b2 2e       	mov	r11, r18
+					TRR = 0;
+					enabled = 1;
+					LED = 0;
+					last_change = 0xAA;
+ 200:	3a ea       	ldi	r19, 0xAA	; 170
+ 202:	a3 2e       	mov	r10, r19
+					ps2_send_byte(0xAA);
+					break;
+				default:
+					last_change = 0x00;
+ 204:	e1 2c       	mov	r14, r1
+ 206:	f1 2c       	mov	r15, r1
+ 208:	b2 cf       	rjmp	.-156    	; 0x16e <main+0x22>
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);			
+					break;
+				// resend
+				case 0xFE:
+					ps2_send_byte(0xFA);
+ 20a:	8a ef       	ldi	r24, 0xFA	; 250
+ 20c:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					ps2_send_byte(last_change);
+ 210:	8a 2d       	mov	r24, r10
+ 212:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					break;
+ 216:	a9 cf       	rjmp	.-174    	; 0x16a <main+0x1e>
+					scancode = 0x02;
+					TRR = 0;
+					enabled = 0;
+					LED = 0;
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);			
+ 218:	8a ef       	ldi	r24, 0xFA	; 250
+ 21a:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+ 21e:	10 e0       	ldi	r17, 0x00	; 0
+				// keyboard disable
+				case 0xF5:
+					keys = 0;
+					recieved = 0;
+					last_keys_state = 0;
+					scancode = 0x02;
+ 220:	42 e0       	ldi	r20, 0x02	; 2
+ 222:	b4 2e       	mov	r11, r20
+					TRR = 0;
+					enabled = 0;
+					LED = 0;
+					last_change = 0xFA;
+ 224:	5a ef       	ldi	r21, 0xFA	; 250
+ 226:	a5 2e       	mov	r10, r21
+					break;
+				// keyboard disable
+				case 0xF5:
+					keys = 0;
+					recieved = 0;
+					last_keys_state = 0;
+ 228:	e1 2c       	mov	r14, r1
+ 22a:	f1 2c       	mov	r15, r1
+ 22c:	9a cf       	rjmp	.-204    	; 0x162 <main+0x16>
+				case 0xF4:
+					keys = 0;
+					last_keys_state = 0;
+					enabled = 1;
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);
+ 22e:	8a ef       	ldi	r24, 0xFA	; 250
+ 230:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+				// keyboard enable
+				case 0xF4:
+					keys = 0;
+					last_keys_state = 0;
+					enabled = 1;
+					last_change = 0xFA;
+ 234:	6a ef       	ldi	r22, 0xFA	; 250
+ 236:	a6 2e       	mov	r10, r22
+					ps2_send_byte(0xFA);
+					break;
+ 238:	e5 cf       	rjmp	.-54     	; 0x204 <main+0xb8>
+					last_change = 0x83;
+					break;
+				// set typematic repeat rate or TRR
+				case 0xF3:
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);
+ 23a:	8a ef       	ldi	r24, 0xFA	; 250
+ 23c:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+ 240:	c4 ef       	ldi	r28, 0xF4	; 244
+ 242:	d1 e0       	ldi	r29, 0x01	; 1
+ 244:	07 c0       	rjmp	.+14     	; 0x254 <main+0x108>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 13e:	4f ef       	ldi	r20, 0xFF	; 255
- 140:	59 e6       	ldi	r21, 0x69	; 105
- 142:	68 e1       	ldi	r22, 0x18	; 24
- 144:	41 50       	subi	r20, 0x01	; 1
- 146:	50 40       	sbci	r21, 0x00	; 0
- 148:	60 40       	sbci	r22, 0x00	; 0
- 14a:	e1 f7       	brne	.-8      	; 0x144 <main+0x1e>
- 14c:	00 c0       	rjmp	.+0      	; 0x14e <main+0x28>
- 14e:	00 00       	nop
-		_delay_ms(500);
-		PORTB &= ~_BV(PORTB5);
- 150:	2d 98       	cbi	0x05, 5	; 5
- 152:	4f ef       	ldi	r20, 0xFF	; 255
- 154:	59 e6       	ldi	r21, 0x69	; 105
- 156:	68 e1       	ldi	r22, 0x18	; 24
- 158:	41 50       	subi	r20, 0x01	; 1
- 15a:	50 40       	sbci	r21, 0x00	; 0
- 15c:	60 40       	sbci	r22, 0x00	; 0
- 15e:	e1 f7       	brne	.-8      	; 0x158 <main+0x32>
- 160:	00 c0       	rjmp	.+0      	; 0x162 <main+0x3c>
- 162:	00 00       	nop
-		_delay_ms(500);
-	}while(--count);
- 164:	21 50       	subi	r18, 0x01	; 1
- 166:	51 f7       	brne	.-44     	; 0x13c <main+0x16>
- 168:	2f ef       	ldi	r18, 0xFF	; 255
- 16a:	4d e3       	ldi	r20, 0x3D	; 61
- 16c:	59 e4       	ldi	r21, 0x49	; 73
- 16e:	21 50       	subi	r18, 0x01	; 1
- 170:	40 40       	sbci	r20, 0x00	; 0
- 172:	50 40       	sbci	r21, 0x00	; 0
- 174:	e1 f7       	brne	.-8      	; 0x16e <main+0x48>
- 176:	00 c0       	rjmp	.+0      	; 0x178 <main+0x52>
- 178:	00 00       	nop
-			if(keys & 1){
-				light_count(i+1);
-				_delay_ms(1500);
-				//break;
-			}
-			keys >>= 1;
- 17a:	96 95       	lsr	r25
- 17c:	87 95       	ror	r24
- 17e:	21 e0       	ldi	r18, 0x01	; 1
- 180:	23 0f       	add	r18, r19
-	ps2_initialize();
-	keyboard_initialize();
-	DDRB |= _BV(PORTB5);
-	while (1){
-		keys = keyboard_read();
-		for(i=0; i<16; i++){
- 182:	21 31       	cpi	r18, 0x11	; 17
- 184:	a9 f2       	breq	.-86     	; 0x130 <main+0xa>
- 186:	32 2f       	mov	r19, r18
- 188:	d6 cf       	rjmp	.-84     	; 0x136 <main+0x10>
+ 246:	f5 ed       	ldi	r31, 0xD5	; 213
+ 248:	fa 95       	dec	r31
+ 24a:	f1 f7       	brne	.-4      	; 0x248 <main+0xfc>
+ 24c:	00 00       	nop
+ 24e:	21 97       	sbiw	r28, 0x01	; 1
+					for(timeout=0; timeout<500; timeout++){
+ 250:	20 97       	sbiw	r28, 0x00	; 0
+ 252:	31 f0       	breq	.+12     	; 0x260 <main+0x114>
+						if(ps2_check_host()){
+ 254:	0e 94 15 02 	call	0x42a	; 0x42a <ps2_check_host>
+ 258:	88 23       	and	r24, r24
+ 25a:	a9 f3       	breq	.-22     	; 0x246 <main+0xfa>
+							TRR = ps2_recieve_byte();
+ 25c:	0e 94 c3 01 	call	0x386	; 0x386 <ps2_recieve_byte>
+							break;
+						}
+						_delay_us(40);
+					}
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);
+ 260:	8a ef       	ldi	r24, 0xFA	; 250
+ 262:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+							TRR = ps2_recieve_byte();
+							break;
+						}
+						_delay_us(40);
+					}
+					last_change = 0xFA;
+ 266:	7a ef       	ldi	r23, 0xFA	; 250
+ 268:	a7 2e       	mov	r10, r23
+					ps2_send_byte(0xFA);
+					break;
+ 26a:	7f cf       	rjmp	.-258    	; 0x16a <main+0x1e>
+						_delay_us(40);				
+					}
+					break;
+				// read keyboard ID
+				case 0xF2:
+					ps2_send_byte(0xFA);
+ 26c:	8a ef       	ldi	r24, 0xFA	; 250
+ 26e:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					ps2_send_byte(0xAB);
+ 272:	8b ea       	ldi	r24, 0xAB	; 171
+ 274:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					ps2_send_byte(0x83);
+ 278:	83 e8       	ldi	r24, 0x83	; 131
+ 27a:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					last_change = 0x83;
+ 27e:	e3 e8       	ldi	r30, 0x83	; 131
+ 280:	ae 2e       	mov	r10, r30
+					break;
+ 282:	73 cf       	rjmp	.-282    	; 0x16a <main+0x1e>
+					ps2_send_byte(0xEE);
+					break;
+				// set scan code set
+				case 0xF0:
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);
+ 284:	8a ef       	ldi	r24, 0xFA	; 250
+ 286:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+ 28a:	c4 ef       	ldi	r28, 0xF4	; 244
+ 28c:	d1 e0       	ldi	r29, 0x01	; 1
+ 28e:	07 c0       	rjmp	.+14     	; 0x29e <main+0x152>
+ 290:	e5 ed       	ldi	r30, 0xD5	; 213
+ 292:	ea 95       	dec	r30
+ 294:	f1 f7       	brne	.-4      	; 0x292 <main+0x146>
+ 296:	00 00       	nop
+ 298:	21 97       	sbiw	r28, 0x01	; 1
+					for(timeout=0; timeout<500; timeout++){
+ 29a:	20 97       	sbiw	r28, 0x00	; 0
+ 29c:	41 f1       	breq	.+80     	; 0x2ee <main+0x1a2>
+						if(ps2_check_host()){
+ 29e:	0e 94 15 02 	call	0x42a	; 0x42a <ps2_check_host>
+ 2a2:	88 23       	and	r24, r24
+ 2a4:	a9 f3       	breq	.-22     	; 0x290 <main+0x144>
+							recieved = ps2_recieve_byte();
+ 2a6:	0e 94 c3 01 	call	0x386	; 0x386 <ps2_recieve_byte>
+							if(recieved==0x00){
+ 2aa:	00 97       	sbiw	r24, 0x00	; 0
+ 2ac:	19 f1       	breq	.+70     	; 0x2f4 <main+0x1a8>
+								ps2_send_byte(scancode);
+							}else{
+								scancode = recieved;
+ 2ae:	b8 2e       	mov	r11, r24
+					last_change = 0xEE;
+					ps2_send_byte(0xEE);
+					break;
+				// set scan code set
+				case 0xF0:
+					last_change = 0xFA;
+ 2b0:	fa ef       	ldi	r31, 0xFA	; 250
+ 2b2:	af 2e       	mov	r10, r31
+ 2b4:	5a cf       	rjmp	.-332    	; 0x16a <main+0x1e>
+					}
+					break;
+				// echo
+				case 0xEE:
+					last_change = 0xEE;
+					ps2_send_byte(0xEE);
+ 2b6:	8e ee       	ldi	r24, 0xEE	; 238
+ 2b8:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+						_delay_us(40);
+					}
+					break;
+				// echo
+				case 0xEE:
+					last_change = 0xEE;
+ 2bc:	be ee       	ldi	r27, 0xEE	; 238
+ 2be:	ab 2e       	mov	r10, r27
+					ps2_send_byte(0xEE);
+					break;
+ 2c0:	54 cf       	rjmp	.-344    	; 0x16a <main+0x1e>
+			//TODO check parity
+			switch (recieved & 0xFF){
+				// LED
+				case 0xED:
+					last_change = 0xFA;
+					ps2_send_byte(0xFA);
+ 2c2:	8a ef       	ldi	r24, 0xFA	; 250
+ 2c4:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+ 2c8:	c4 ef       	ldi	r28, 0xF4	; 244
+ 2ca:	d1 e0       	ldi	r29, 0x01	; 1
+ 2cc:	07 c0       	rjmp	.+14     	; 0x2dc <main+0x190>
+ 2ce:	85 ed       	ldi	r24, 0xD5	; 213
+ 2d0:	8a 95       	dec	r24
+ 2d2:	f1 f7       	brne	.-4      	; 0x2d0 <main+0x184>
+ 2d4:	00 00       	nop
+ 2d6:	21 97       	sbiw	r28, 0x01	; 1
+					for(timeout=0; timeout<500; timeout++){
+ 2d8:	20 97       	sbiw	r28, 0x00	; 0
+ 2da:	49 f0       	breq	.+18     	; 0x2ee <main+0x1a2>
+						if(ps2_check_host()){
+ 2dc:	0e 94 15 02 	call	0x42a	; 0x42a <ps2_check_host>
+ 2e0:	88 23       	and	r24, r24
+ 2e2:	a9 f3       	breq	.-22     	; 0x2ce <main+0x182>
+							LED = ps2_recieve_byte();
+ 2e4:	0e 94 c3 01 	call	0x386	; 0x386 <ps2_recieve_byte>
+			recieved = ps2_recieve_byte();
+			//TODO check parity
+			switch (recieved & 0xFF){
+				// LED
+				case 0xED:
+					last_change = 0xFA;
+ 2e8:	ca ef       	ldi	r28, 0xFA	; 250
+ 2ea:	ac 2e       	mov	r10, r28
+					ps2_send_byte(0xFA);
+					for(timeout=0; timeout<500; timeout++){
+						if(ps2_check_host()){
+							LED = ps2_recieve_byte();
+							break;
+ 2ec:	3e cf       	rjmp	.-388    	; 0x16a <main+0x1e>
+					last_change = 0xEE;
+					ps2_send_byte(0xEE);
+					break;
+				// set scan code set
+				case 0xF0:
+					last_change = 0xFA;
+ 2ee:	9a ef       	ldi	r25, 0xFA	; 250
+ 2f0:	a9 2e       	mov	r10, r25
+ 2f2:	3b cf       	rjmp	.-394    	; 0x16a <main+0x1e>
+					ps2_send_byte(0xFA);
+					for(timeout=0; timeout<500; timeout++){
+						if(ps2_check_host()){
+							recieved = ps2_recieve_byte();
+							if(recieved==0x00){
+								ps2_send_byte(scancode);
+ 2f4:	8b 2d       	mov	r24, r11
+ 2f6:	0e 94 85 01 	call	0x30a	; 0x30a <ps2_send_byte>
+					last_change = 0xEE;
+					ps2_send_byte(0xEE);
+					break;
+				// set scan code set
+				case 0xF0:
+					last_change = 0xFA;
+ 2fa:	aa ef       	ldi	r26, 0xFA	; 250
+ 2fc:	aa 2e       	mov	r10, r26
+ 2fe:	35 cf       	rjmp	.-406    	; 0x16a <main+0x1e>
 
-0000018a <ps2_initialize>:
+00000300 <ps2_initialize>:
 /* half clock initialized for 40us clock */
 uint8_t ps2_half_clock = (40/2*F_CPU/1000000/3);
 
 /* Initializes the interface */
 void ps2_initialize(void){
 	CLOCK_1();
- 18a:	3a 98       	cbi	0x07, 2	; 7
- 18c:	42 9a       	sbi	0x08, 2	; 8
+ 300:	3a 98       	cbi	0x07, 2	; 7
+ 302:	42 9a       	sbi	0x08, 2	; 8
 	DATA_1();
- 18e:	3b 98       	cbi	0x07, 3	; 7
- 190:	43 9a       	sbi	0x08, 3	; 8
- 192:	08 95       	ret
+ 304:	3b 98       	cbi	0x07, 3	; 7
+ 306:	43 9a       	sbi	0x08, 3	; 8
+ 308:	08 95       	ret
 
-00000194 <_exit>:
- 194:	f8 94       	cli
+0000030a <ps2_send_byte>:
 
-00000196 <__stop_program>:
- 196:	ff cf       	rjmp	.-2      	; 0x196 <__stop_program>
+/* Sends 1 byte to host + 1 parity bit */
+void ps2_send_byte(uint8_t data){
+	uint8_t count;
+	uint8_t parity = 1;
+	DATA_0();
+ 30a:	3b 9a       	sbi	0x07, 3	; 7
+ 30c:	43 98       	cbi	0x08, 3	; 8
+ 30e:	90 91 00 01 	lds	r25, 0x0100
+ 312:	9a 95       	dec	r25
+ 314:	f1 f7       	brne	.-4      	; 0x312 <ps2_send_byte+0x8>
+	_delay_loop_1(ps2_half_clock);
+	CLOCK_0();
+ 316:	3a 9a       	sbi	0x07, 2	; 7
+ 318:	42 98       	cbi	0x08, 2	; 8
+ 31a:	90 91 00 01 	lds	r25, 0x0100
+ 31e:	9a 95       	dec	r25
+ 320:	f1 f7       	brne	.-4      	; 0x31e <ps2_send_byte+0x14>
+}
+
+/* Sends 1 byte to host + 1 parity bit */
+void ps2_send_byte(uint8_t data){
+	uint8_t count;
+	uint8_t parity = 1;
+ 322:	31 e0       	ldi	r19, 0x01	; 1
+	DATA_0();
+	_delay_loop_1(ps2_half_clock);
+	CLOCK_0();
+	_delay_loop_1(ps2_half_clock);
+	for(count=0; count<10; count++){
+ 324:	90 e0       	ldi	r25, 0x00	; 0
+		if(count == 9){
+			data = 1;
+		}
+		if(data & 1){
+			DATA_1();
+			parity^=1;
+ 326:	41 e0       	ldi	r20, 0x01	; 1
+ 328:	11 c0       	rjmp	.+34     	; 0x34c <ps2_send_byte+0x42>
+ 32a:	86 95       	lsr	r24
+		}
+		if(count == 9){
+			data = 1;
+		}
+		if(data & 1){
+			DATA_1();
+ 32c:	3b 98       	cbi	0x07, 3	; 7
+ 32e:	43 9a       	sbi	0x08, 3	; 8
+			parity^=1;
+ 330:	34 27       	eor	r19, r20
+ 332:	20 91 00 01 	lds	r18, 0x0100
+ 336:	2a 95       	dec	r18
+ 338:	f1 f7       	brne	.-4      	; 0x336 <ps2_send_byte+0x2c>
+		}else{
+			DATA_0();
+		}
+		data>>=1;
+		_delay_loop_1(ps2_half_clock);
+		CLOCK_0();
+ 33a:	3a 9a       	sbi	0x07, 2	; 7
+ 33c:	42 98       	cbi	0x08, 2	; 8
+ 33e:	20 91 00 01 	lds	r18, 0x0100
+ 342:	2a 95       	dec	r18
+ 344:	f1 f7       	brne	.-4      	; 0x342 <ps2_send_byte+0x38>
+	uint8_t parity = 1;
+	DATA_0();
+	_delay_loop_1(ps2_half_clock);
+	CLOCK_0();
+	_delay_loop_1(ps2_half_clock);
+	for(count=0; count<10; count++){
+ 346:	9f 5f       	subi	r25, 0xFF	; 255
+ 348:	9a 30       	cpi	r25, 0x0A	; 10
+ 34a:	61 f0       	breq	.+24     	; 0x364 <ps2_send_byte+0x5a>
+		CLOCK_1();
+ 34c:	3a 98       	cbi	0x07, 2	; 7
+ 34e:	42 9a       	sbi	0x08, 2	; 8
+		if(count == 8){
+ 350:	98 30       	cpi	r25, 0x08	; 8
+ 352:	a9 f0       	breq	.+42     	; 0x37e <ps2_send_byte+0x74>
+			data = parity;
+		}
+		if(count == 9){
+ 354:	99 30       	cpi	r25, 0x09	; 9
+ 356:	a9 f0       	breq	.+42     	; 0x382 <ps2_send_byte+0x78>
+			data = 1;
+		}
+		if(data & 1){
+ 358:	80 fd       	sbrc	r24, 0
+ 35a:	e7 cf       	rjmp	.-50     	; 0x32a <ps2_send_byte+0x20>
+			DATA_1();
+			parity^=1;
+		}else{
+			DATA_0();
+ 35c:	3b 9a       	sbi	0x07, 3	; 7
+ 35e:	43 98       	cbi	0x08, 3	; 8
+ 360:	86 95       	lsr	r24
+ 362:	e7 cf       	rjmp	.-50     	; 0x332 <ps2_send_byte+0x28>
+		data>>=1;
+		_delay_loop_1(ps2_half_clock);
+		CLOCK_0();
+		_delay_loop_1(ps2_half_clock);
+	}
+	CLOCK_1();
+ 364:	3a 98       	cbi	0x07, 2	; 7
+ 366:	42 9a       	sbi	0x08, 2	; 8
+	_delay_loop_1(ps2_half_clock);
+ 368:	80 91 00 01 	lds	r24, 0x0100
+ 36c:	98 2f       	mov	r25, r24
+ 36e:	9a 95       	dec	r25
+ 370:	f1 f7       	brne	.-4      	; 0x36e <ps2_send_byte+0x64>
+ 372:	98 2f       	mov	r25, r24
+ 374:	9a 95       	dec	r25
+ 376:	f1 f7       	brne	.-4      	; 0x374 <ps2_send_byte+0x6a>
+ 378:	8a 95       	dec	r24
+ 37a:	f1 f7       	brne	.-4      	; 0x378 <ps2_send_byte+0x6e>
+ 37c:	08 95       	ret
+ 37e:	83 2f       	mov	r24, r19
+ 380:	eb cf       	rjmp	.-42     	; 0x358 <ps2_send_byte+0x4e>
+ 382:	80 e0       	ldi	r24, 0x00	; 0
+ 384:	d3 cf       	rjmp	.-90     	; 0x32c <ps2_send_byte+0x22>
+
+00000386 <ps2_recieve_byte>:
+ 386:	80 91 00 01 	lds	r24, 0x0100
+ 38a:	8a 95       	dec	r24
+ 38c:	f1 f7       	brne	.-4      	; 0x38a <ps2_recieve_byte+0x4>
+ 38e:	2a e0       	ldi	r18, 0x0A	; 10
+}
+
+/* Function reads 1 byte from host + 1 parity bit. It returns data in the LSB and parity in the MSB */
+uint16_t ps2_recieve_byte(void){
+	uint8_t count;
+	uint16_t result = 0;
+ 390:	80 e0       	ldi	r24, 0x00	; 0
+ 392:	90 e0       	ldi	r25, 0x00	; 0
+	_delay_loop_1(ps2_half_clock);
+	for(count=0; count<10; count++){
+		result>>=1;
+ 394:	96 95       	lsr	r25
+ 396:	87 95       	ror	r24
+		if(PS2_PIN & _BV(PS2_DATA)){
+ 398:	33 99       	sbic	0x06, 3	; 6
+			result |= 1U<<15;
+ 39a:	90 68       	ori	r25, 0x80	; 128
+		}
+		CLOCK_0();
+ 39c:	3a 9a       	sbi	0x07, 2	; 7
+ 39e:	42 98       	cbi	0x08, 2	; 8
+ 3a0:	30 91 00 01 	lds	r19, 0x0100
+ 3a4:	3a 95       	dec	r19
+ 3a6:	f1 f7       	brne	.-4      	; 0x3a4 <ps2_recieve_byte+0x1e>
+		_delay_loop_1(ps2_half_clock);
+		CLOCK_1();
+ 3a8:	3a 98       	cbi	0x07, 2	; 7
+ 3aa:	42 9a       	sbi	0x08, 2	; 8
+ 3ac:	30 91 00 01 	lds	r19, 0x0100
+ 3b0:	3a 95       	dec	r19
+ 3b2:	f1 f7       	brne	.-4      	; 0x3b0 <ps2_recieve_byte+0x2a>
+ 3b4:	21 50       	subi	r18, 0x01	; 1
+/* Function reads 1 byte from host + 1 parity bit. It returns data in the LSB and parity in the MSB */
+uint16_t ps2_recieve_byte(void){
+	uint8_t count;
+	uint16_t result = 0;
+	_delay_loop_1(ps2_half_clock);
+	for(count=0; count<10; count++){
+ 3b6:	71 f7       	brne	.-36     	; 0x394 <ps2_recieve_byte+0xe>
+		CLOCK_0();
+		_delay_loop_1(ps2_half_clock);
+		CLOCK_1();
+		_delay_loop_1(ps2_half_clock);
+	}
+	result >>= 7;
+ 3b8:	88 0f       	add	r24, r24
+ 3ba:	89 2f       	mov	r24, r25
+ 3bc:	88 1f       	adc	r24, r24
+ 3be:	99 0b       	sbc	r25, r25
+ 3c0:	91 95       	neg	r25
+ 3c2:	28 e0       	ldi	r18, 0x08	; 8
+	
+	/* Waiting for stop bit (data line idle) */
+	for(count=0; count<8; count++){
+		if(PS2_PIN & _BV(PS2_DATA)){
+ 3c4:	33 99       	sbic	0x06, 3	; 6
+ 3c6:	0e c0       	rjmp	.+28     	; 0x3e4 <ps2_recieve_byte+0x5e>
+			break;
+		}
+		CLOCK_0();
+ 3c8:	3a 9a       	sbi	0x07, 2	; 7
+ 3ca:	42 98       	cbi	0x08, 2	; 8
+ 3cc:	30 91 00 01 	lds	r19, 0x0100
+ 3d0:	3a 95       	dec	r19
+ 3d2:	f1 f7       	brne	.-4      	; 0x3d0 <ps2_recieve_byte+0x4a>
+		_delay_loop_1(ps2_half_clock);
+		CLOCK_1();
+ 3d4:	3a 98       	cbi	0x07, 2	; 7
+ 3d6:	42 9a       	sbi	0x08, 2	; 8
+ 3d8:	30 91 00 01 	lds	r19, 0x0100
+ 3dc:	3a 95       	dec	r19
+ 3de:	f1 f7       	brne	.-4      	; 0x3dc <ps2_recieve_byte+0x56>
+ 3e0:	21 50       	subi	r18, 0x01	; 1
+		_delay_loop_1(ps2_half_clock);
+	}
+	result >>= 7;
+	
+	/* Waiting for stop bit (data line idle) */
+	for(count=0; count<8; count++){
+ 3e2:	81 f7       	brne	.-32     	; 0x3c4 <ps2_recieve_byte+0x3e>
+		CLOCK_1();
+		_delay_loop_1(ps2_half_clock);
+	} /* If count == 8 can be signaled for error */
+
+	/* Sending acknowledge bit */
+	CLOCK_0();
+ 3e4:	3a 9a       	sbi	0x07, 2	; 7
+ 3e6:	42 98       	cbi	0x08, 2	; 8
+ 3e8:	20 91 00 01 	lds	r18, 0x0100
+ 3ec:	2a 95       	dec	r18
+ 3ee:	f1 f7       	brne	.-4      	; 0x3ec <ps2_recieve_byte+0x66>
+	_delay_loop_1(ps2_half_clock);
+	CLOCK_1();
+ 3f0:	3a 98       	cbi	0x07, 2	; 7
+ 3f2:	42 9a       	sbi	0x08, 2	; 8
+	DATA_0();
+ 3f4:	3b 9a       	sbi	0x07, 3	; 7
+ 3f6:	43 98       	cbi	0x08, 3	; 8
+ 3f8:	20 91 00 01 	lds	r18, 0x0100
+ 3fc:	2a 95       	dec	r18
+ 3fe:	f1 f7       	brne	.-4      	; 0x3fc <ps2_recieve_byte+0x76>
+	_delay_loop_1(ps2_half_clock);
+	CLOCK_0();
+ 400:	3a 9a       	sbi	0x07, 2	; 7
+ 402:	42 98       	cbi	0x08, 2	; 8
+ 404:	20 91 00 01 	lds	r18, 0x0100
+ 408:	2a 95       	dec	r18
+ 40a:	f1 f7       	brne	.-4      	; 0x408 <ps2_recieve_byte+0x82>
+	_delay_loop_1(ps2_half_clock);
+	CLOCK_1();
+ 40c:	3a 98       	cbi	0x07, 2	; 7
+ 40e:	42 9a       	sbi	0x08, 2	; 8
+	DATA_1();
+ 410:	3b 98       	cbi	0x07, 3	; 7
+ 412:	43 9a       	sbi	0x08, 3	; 8
+	_delay_loop_1(ps2_half_clock);
+ 414:	20 91 00 01 	lds	r18, 0x0100
+ 418:	32 2f       	mov	r19, r18
+ 41a:	3a 95       	dec	r19
+ 41c:	f1 f7       	brne	.-4      	; 0x41a <ps2_recieve_byte+0x94>
+ 41e:	32 2f       	mov	r19, r18
+ 420:	3a 95       	dec	r19
+ 422:	f1 f7       	brne	.-4      	; 0x420 <ps2_recieve_byte+0x9a>
+ 424:	2a 95       	dec	r18
+ 426:	f1 f7       	brne	.-4      	; 0x424 <ps2_recieve_byte+0x9e>
+ 428:	08 95       	ret
+
+0000042a <ps2_check_host>:
+//Checks if the clock line is low for at least 100us
+//Meaning host wants to transfer something
+// returns 1 if host wants to send something, else 0
+uint8_t ps2_check_host(void){
+	uint16_t i;
+	if(!(PS2_PIN & _BV(PS2_CLOCK))){
+ 42a:	32 99       	sbic	0x06, 2	; 6
+ 42c:	0c c0       	rjmp	.+24     	; 0x446 <ps2_check_host+0x1c>
+ 42e:	8c e2       	ldi	r24, 0x2C	; 44
+ 430:	91 e0       	ldi	r25, 0x01	; 1
+ 432:	03 c0       	rjmp	.+6      	; 0x43a <ps2_check_host+0x10>
+ 434:	01 97       	sbiw	r24, 0x01	; 1
+		for(i = 0; i<(300*(F_CPU/1000000)/16); i++){
+ 436:	00 97       	sbiw	r24, 0x00	; 0
+ 438:	31 f0       	breq	.+12     	; 0x446 <ps2_check_host+0x1c>
+			if((PS2_PIN & (_BV(PS2_DATA) | _BV(PS2_CLOCK))) == _BV(PS2_CLOCK)){
+ 43a:	26 b1       	in	r18, 0x06	; 6
+ 43c:	2c 70       	andi	r18, 0x0C	; 12
+ 43e:	24 30       	cpi	r18, 0x04	; 4
+ 440:	c9 f7       	brne	.-14     	; 0x434 <ps2_check_host+0xa>
+				return 1;
+ 442:	81 e0       	ldi	r24, 0x01	; 1
+ 444:	08 95       	ret
+			}
+		}
+	}
+	return 0;
+ 446:	80 e0       	ldi	r24, 0x00	; 0
+}
+ 448:	08 95       	ret
+
+0000044a <__tablejump2__>:
+ 44a:	ee 0f       	add	r30, r30
+ 44c:	ff 1f       	adc	r31, r31
+
+0000044e <__tablejump__>:
+ 44e:	05 90       	lpm	r0, Z+
+ 450:	f4 91       	lpm	r31, Z
+ 452:	e0 2d       	mov	r30, r0
+ 454:	09 94       	ijmp
+
+00000456 <_exit>:
+ 456:	f8 94       	cli
+
+00000458 <__stop_program>:
+ 458:	ff cf       	rjmp	.-2      	; 0x458 <__stop_program>
