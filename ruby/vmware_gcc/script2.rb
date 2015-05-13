@@ -24,15 +24,44 @@ def format_roots(string)
 end
 
 def root_protect(root)
-	puts root
-	if("#{$objects[root].class}" == "NilClass") or ($protected.include? root)
+	temp = $objects[root]
+	$objects.delete(root)
+	$protected << root
+	if("#{temp.class}" == "NilClass") or ($visited.include?(root)) #or ($protected.include? root)
 		return
 	else
-		$objects["#{root}"].each do |i|
+		$visited << root
+		temp.each do |i|
+			puts i
 			root_protect("#{i}")
-			$protected << root
 		end
 	end
+end
+
+def post(root)
+	puts root
+	temp = $objects[root]
+	$objects.delete(root)
+	if("#{temp.class}" == "NilClass") or ($protected.include? root)
+		return
+	else
+		object_clean("#{root}")
+		temp.each do |i|
+			post("#{i}")
+		end
+	end	
+end
+
+def post_mul(root, result)
+	temp = $objects[root]
+	$objects.delete(root)
+	if("#{temp.class}" == "NilClass") or ($protected.include? root) or ($visited.include?(root))
+		return
+	else
+		result << "#{root} "
+		post_mul("#{temp[0]}", result)
+	end
+	return result
 end
 
 def object_clean(object)
@@ -45,34 +74,26 @@ $objects = Net::HTTP.get(URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}
 $roots = format_roots($roots)
 $objects = format_objects($objects)
 $protected = Set.new
+$visited = Set.new
 
 $roots.each do |root|
 	root_protect(root)
 end
 
+
 puts "Working on sector #{ARGV[0]}"
+puts "Number of obj to be removed: "
+puts $objects.count
 
-
-#also still crashes on cycles
-#this is a infinite cycle, plese fix
 while(!$objects.empty?) do
 	$objects.each_key do |i|
-		if($protected.include? i)
-			puts "Don't delete this guy!"
-			puts i
-			puts "Thanks!"
-		else
-		puts i
-		object_clean(i)
-		$objects.delete(i)
-		end
+		result = String.new
+		puts post_mul(i, result)
+		object_clean("#{result[0...-1]}")
 	end
 end
 
 puts "Done!"
-
-
-
 
 #Old implementation with arrays,
 #the new one executes a hash for faster seek times
