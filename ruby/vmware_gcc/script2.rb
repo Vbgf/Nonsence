@@ -27,7 +27,7 @@ def root_protect(root)
 	temp = $objects[root]
 	$objects.delete(root)
 	$protected << root
-	if("#{temp.class}" == "NilClass") or ($visited.include?(root)) #or ($protected.include? root)
+	if("#{temp.class}" == "NilClass") or ($visited.include?(root))
 		return
 	else
 		$visited << root
@@ -36,20 +36,6 @@ def root_protect(root)
 			root_protect("#{i}")
 		end
 	end
-end
-
-def post(root)
-	puts root
-	temp = $objects[root]
-	$objects.delete(root)
-	if("#{temp.class}" == "NilClass") or ($protected.include? root)
-		return
-	else
-		object_clean("#{root}")
-		temp.each do |i|
-			post("#{i}")
-		end
-	end	
 end
 
 def post_mul(root, result)
@@ -80,7 +66,6 @@ $roots.each do |root|
 	root_protect(root)
 end
 
-
 puts "Working on sector #{ARGV[0]}"
 puts "Number of obj to be removed: "
 puts $objects.count
@@ -94,40 +79,3 @@ while(!$objects.empty?) do
 end
 
 puts "Done!"
-
-#Old implementation with arrays,
-#the new one executes a hash for faster seek times
-#def format_objects(string)
-#	pair = Array.new(2, 0)
-#	arr = Array.new(0, pair)
-#	temp = string.split(' ')
-#	for i in (0..(temp.size)-1).step(2) do
-#		pair[0] = temp[i]
-#		pair[1] = temp[i+1]
-#		arr[i/2] = pair[0..1]
-#	end
-#	return arr
-#end
-
-#def arr_to_hash (array)
-#	arr = array.to_s.split(' ')
-#	hash = Hash.new
-#	for i in (0..(arr.size)-1).step(2) do
-#		hash[arr[i]] = arr[i+1]
-#	end
-#	return hash
-#end
-
-#hashes = Array.new
-#for i in 0..10 do
-#	hashes[i] = arr_to_hash(objects[i])
-#end
-#puts hash[3]
-
-# Will print response.body
-#Net::HTTP.get_print(objects[2])
-#puts objects[2]
-
-#uri = URI("http://192.168.0.114:8080/api/sector/5/company/vbgf/trajectory")
-#res = Net::HTTP.post_form(uri, "trajectory" => "8")
-#puts res.body
