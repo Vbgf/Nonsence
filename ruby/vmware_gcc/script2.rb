@@ -6,12 +6,14 @@ def format_objects(string)
 	hash = Hash.new
 	temp = string.split(' ')
 	for i in (0..(temp.size)-1).step(2) do
-		if(hash.has_key?(temp[i]))
-			hash[temp[i]] << temp[i+1].to_i
-		else
-			arr = Array.new
-			arr << temp[i+1].to_i
-			hash[temp[i]] = arr
+		if(temp[i] != temp[i+1])
+			if(hash.has_key?(temp[i]))
+				hash[temp[i]] << temp[i+1].to_i
+			else
+				arr = Array.new
+				arr << temp[i+1].to_i
+				hash[temp[i]] = arr
+			end
 		end
 	end
 	return hash
@@ -21,7 +23,8 @@ def format_roots(string)
 	return string.split(' ').each {|i| i.to_i}
 end
 
-def root_protect(root)	
+def root_protect(root)
+	puts root
 	if("#{$objects[root].class}" == "NilClass") or ($protected.include? root)
 		return
 	else
@@ -44,14 +47,14 @@ $objects = format_objects($objects)
 $protected = Set.new
 
 $roots.each do |root|
-	$objects["#{root}"].each do |i|
-		root_protect("#{i}")
-		$protected << root
-	end
+	root_protect(root)
 end
 
 puts "Working on sector #{ARGV[0]}"
 
+
+#also still crashes on cycles
+#this is a infinite cycle, plese fix
 while(!$objects.empty?) do
 	$objects.each_key do |i|
 		if($protected.include? i)
