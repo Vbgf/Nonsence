@@ -55,8 +55,19 @@ def object_clean(object)
 	res = Net::HTTP.post_form(uri, "trajectory" => "#{object}")
 end
 
-$roots = Net::HTTP.get(URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}/roots"))
-$objects = Net::HTTP.get(URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}/objects"))
+##check server
+##topologi4na sortirovka
+##visited
+
+uri_r = URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}/roots")
+uri_o = URI.parse("http://#{ARGV[1]}:8080/api/sector/#{ARGV[0]}/objects")
+$roots = Net::HTTP.get(uri_r)
+$objects = Net::HTTP.get(uri_o)
+
+if("#{ARGV[0]}" == "1")
+	`./shell.sh #{ARGV[1]}`
+end
+
 $roots = format_roots($roots)
 $objects = format_objects($objects)
 $protected = Set.new
