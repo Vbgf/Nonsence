@@ -65,7 +65,7 @@ $roots = Net::HTTP.get(uri_r)
 $objects = Net::HTTP.get(uri_o)
 
 if("#{ARGV[0]}" == "1")
-	`./shell.sh #{ARGV[1]}`
+	`bash shell.sh #{ARGV[1]}`
 end
 
 $roots = format_roots($roots)
