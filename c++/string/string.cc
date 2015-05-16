@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include <cstring>
+//#include <typeinfo>  //- used for tests
 using namespace std;
 
 #define DEFAULT_START_SIZE 10
@@ -145,10 +145,12 @@ public:
 
 	String(const String& other){
 		cout << "In String(const String& other)" << endl;
-		buffer_ = new char[other.size()];
+		capacity_ = other.size();
+		buffer_ = new char[capacity_];
 		for(int i=0; i<other.size(); i++){
 			buffer_[i] = other[i];
 		}
+		size_ = other.size();
 	}
 
 	String& operator=(const String& other){
@@ -225,22 +227,40 @@ public:
 	}
 
 	String& append(const String& other){
-
+		if(capacity_<size_+other.size()){
+			capacity_ = size_+other.size();
+			char* temp = new char[capacity_];
+			int i;
+			for(i=0; i<size_; i++){
+				temp[i] = buffer_[i];
+			}
+			for(i; i<size_+other.size(); i++){
+				temp[i] = other[i-size_];
+			}
+			size_+=other.size();
+			buffer_ = temp;
+		}else{
+			for(int i=size_; i<size_+other.size(); i++){
+				buffer_[i] = other[i-size_];
+			}
+			size_+=other.size();
+		}
+		return *this;
 	}
 
 	String& operator+=(const String& other){
-
+		return this->append(other);
 	}
 
 	void push_back(char ch){
 		if(size_==capacity_){
 			capacity_ = size_+DEFAULT_START_SIZE;
 			char* temp = new char[capacity_];
-			int i =0;
+			int i;
 			for(i=0; i<size_; i++){
 				temp[i] = buffer_[i];
 			}
-			temp[(i)] = ch;
+			temp[i] = ch;
 			size_++;
 			temp[i+1] = '\0';
 			buffer_ = temp;
@@ -251,8 +271,16 @@ public:
 		}
 	}
 
-	String operator+(const String& other){
-
+	String operator+(const String& other){ //the return value is kinda incorrect, check later
+		String temp(size_+other.size());
+		int i;
+		for(i=0; i<size_; i++){
+			temp[i] = buffer_[i];
+		}
+		for(i; i<size_+other.size(); i++){
+			temp[i] = other[i-size_];
+		}
+		return temp;
 	}
 };
 
@@ -263,7 +291,79 @@ ostream& operator<<(ostream& out, const String& str){
 	return out;
 }
 
-int main(){
+String operator+(const String& s1, const String& s2){ //check later
+	String temp(s1.size()+s2.size());
+	int i;
+	for(i=0; i<s1.size(); i++){
+		temp[i] = s1[i];
+	}
+	for(i; i<s1.size()+s2.size(); i++){
+		temp[i] = s2[i-s1.size()];
+	}
+	return temp;
+}
+
+int main(int argc, char* argv[]){
+	try{
+		//2
+		String str1 = argv[1];
+		String str2 = argv[2];
+		//3
+		cout << "string 1: <" << str1 << ">" << endl;
+		cout << "string 2: <" << str2 << ">" << endl;
+		//4
+		cout << "string 1 lenght: " << str1.size() << endl;
+		cout << "string 2 lenght: " << str2.size() << endl;
+		//5
+		int count = 0;
+		for(String::Iterator it = str1.begin(); it!=str1.end(); it++){
+			if (*it == ' '){
+				count++;
+			}
+		}
+		cout << "string 1 spaces: " << count << endl;
+		count = 0;
+		for(String::Iterator it = str2.begin(); it!=str2.end(); it++){
+			if (*it == ' '){
+				count++;
+			}
+		}
+		cout << "string 2 spaces: " << count << endl;
+		//6
+		if(str1<str2){
+			cout << "<" << str1 << "> is smaller than <" << str2 << ">" << endl;
+		}else if(str1>str2){
+			cout << "<" << str1 << "> is greater than <" << str2 << ">" << endl;
+		}else{
+			cout << "<" << str1 << "> is equal to <" << str2 << ">" << endl;
+		}
+		//7
+		str1.push_back('!');
+		str2.push_back('!');
+		cout << "string 1: <" << str1 << ">" << endl;
+		cout << "string 2: <" << str2 << ">" << endl;
+		//8
+		String str;				// fix this later, String str = str1+str2 doesn't work!
+		str = str1+str2; 			//this is a good temp workaround tho!			
+		cout << "concatenation: <" << str << ">" << endl;
+		//9
+		cout << "concatenatoin length: " << str.size() << endl;
+		//10
+		count = 0;
+		for(String::Iterator it = str.begin(); it!=str.end(); it++){
+			if (*it == ' '){
+				count++;
+			}
+		}
+		cout << "concatenation spaces: " << count << endl;
+	}catch(const out_of_range){
+		cout << "Exception cought, out of range!" << endl;
+	}
+	return 0;
+}
+
+/*	These were my "unit" tests, might come in handy someday
+
 	String s1(3);
 	cout << "size of s1 = " << s1.size() << endl;
 	String s2;
@@ -340,5 +440,37 @@ int main(){
 	cout << "s8 size = " << s8.size() << endl;
 	cout << "s8 capcaity = " << s8.capacity() << endl;
 	cout << "s8 is = " << s8 << endl;
-	return 0;
-}
+	s8.append(s4);
+	cout << "s8 size = " << s8.size() << endl;
+	cout << "s8 capcaity = " << s8.capacity() << endl;
+	cout << "s8 is = " << s8 << endl;
+	s8.append(s8);
+	cout << "s8 size = " << s8.size() << endl;
+	cout << "s8 capcaity = " << s8.capacity() << endl;
+	cout << "s8 is = " << s8 << endl;
+
+	s8.clear();
+	s8 = "ABCDEFGH";
+	cout << "s8 size = " << s8.size() << endl;
+	cout << "s8 capcaity = " << s8.capacity() << endl;
+	cout << "s8 is = " << s8 << endl;
+	s8.push_back('I');
+	cout << "s8 size = " << s8.size() << endl;
+	cout << "s8 capcaity = " << s8.capacity() << endl;
+	cout << "s8 is = " << s8 << endl;
+	s8+=s4;
+	cout << "s8 size = " << s8.size() << endl;
+	cout << "s8 capcaity = " << s8.capacity() << endl;
+	cout << "s8 is = " << s8 << endl;
+	s8+=s8;
+	cout << "s8 size = " << s8.size() << endl;
+	cout << "s8 capcaity = " << s8.capacity() << endl;
+	cout << "s8 is = " << s8 << endl;
+
+	cout << "Testing concatination" << endl;
+	String s9 = (s8+s4);
+	cout << typeid(s8+s4).name() << endl;
+	cout << typeid(s9).name() << endl;
+	cout << "This is the resul of s9=s8+s8 = " << s9 << endl;
+	cout << "This is the unchanged s8 = " << s8 << endl;
+*/
