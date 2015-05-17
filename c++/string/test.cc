@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stdexcept>
-#include "string.hh"
 //#include <typeinfo>  //- used for tests
 using namespace std;
 
