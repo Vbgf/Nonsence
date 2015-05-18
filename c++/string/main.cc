@@ -1,3 +1,16 @@
+//--------------------------------------------
+//NAME: Vasil Kolev
+//CLASS: XIb
+//NUMBER: 6
+//PROBLEM: #1
+//FILE NAME: main.cc
+//FILE PURPOSE:
+//
+//This file tests the functionality of the class
+//string, as declared in the assignment.
+//
+//---------------------------------------------
+
 #include <iostream>
 #include "string.hh"
 using namespace std;
