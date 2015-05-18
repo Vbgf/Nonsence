@@ -26,7 +26,7 @@ buffer_(new char[DEFAULT_START_SIZE])
 
 String::String(int capacity)
 :capacity_(capacity){
-	buffer_ = new char[capacity];
+	buffer_ = new char[capacity+1];
 	size_ = 0;
 }
 
@@ -41,7 +41,7 @@ String::String(const char* str)
 			break;
 		}
 	}
-	buffer_ = new char[capacity_];
+	buffer_ = new char[capacity_+1];
 	for(int i = 0;;i++){
 		buffer_[i] = str[i];
 		if(str[i] == '\0'){
@@ -149,11 +149,12 @@ bool String::operator>=(const String& other){
 
 String::String(const String& other){
 	capacity_ = other.size();
-	buffer_ = new char[capacity_];
+	buffer_ = new char[capacity_+1];
 	for(int i=0; i<other.size(); i++){
 		buffer_[i] = other[i];
 	}
 	size_ = other.size();
+	buffer_[size_+1] = '\0';
 }
 
 String& String::operator=(const String& other){
@@ -166,13 +167,14 @@ String& String::operator=(const String& other){
 	}
 	if (other_size > size_){
 		delete[] buffer_;
-		buffer_ = new char[other_size];
+		buffer_ = new char[other_size+1];
 		capacity_ = other_size;
 	}
 	for(int i = 0; i<other_size; i++){
 		buffer_[i] = other[i];
 	}
 	size_ = other_size;
+	buffer_[size_+1] = '\0';	
 	return *this;
 }
 
@@ -228,7 +230,7 @@ String::Iterator String::end() const{
 String& String::append(const String& other){
 	if(capacity_<size_+other.size()){
 		capacity_ = size_+other.size();
-		char* temp = new char[capacity_];
+		char* temp = new char[capacity_+1];
 		int i;
 		for(i=0; i<size_; i++){
 			temp[i] = buffer_[i];
@@ -243,6 +245,7 @@ String& String::append(const String& other){
 			buffer_[i] = other[i-size_];
 		}
 		size_+=other.size();
+		buffer_[size_+1] = '\0';
 	}
 	return *this;
 }
@@ -254,7 +257,7 @@ String& String::operator+=(const String& other){
 void String::push_back(char ch){
 	if(size_==capacity_){
 		capacity_ = size_+DEFAULT_START_SIZE;
-		char* temp = new char[capacity_];
+		char* temp = new char[capacity_+1];
 		int i;
 		for(i=0; i<size_; i++){
 			temp[i] = buffer_[i];
