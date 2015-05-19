@@ -26,6 +26,8 @@ Discarded input sections
  .text          0x00000000        0x0 PS2_interface.o
  .data          0x00000000        0x0 PS2_interface.o
  .bss           0x00000000        0x0 PS2_interface.o
+ .text.ps2_wait_for_host
+                0x00000000       0x1a PS2_interface.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
@@ -192,7 +194,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x45a
+.text           0x00000000      0x466
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vector_default
@@ -290,22 +292,22 @@ END GROUP
                 0x00000300        0xa PS2_interface.o
                 0x00000300                ps2_initialize
  .text.ps2_send_byte
-                0x0000030a       0x7c PS2_interface.o
+                0x0000030a       0x80 PS2_interface.o
                 0x0000030a                ps2_send_byte
  .text.ps2_recieve_byte
-                0x00000386       0xa4 PS2_interface.o
-                0x00000386                ps2_recieve_byte
+                0x0000038a       0xac PS2_interface.o
+                0x0000038a                ps2_recieve_byte
  .text.ps2_check_host
-                0x0000042a       0x20 PS2_interface.o
-                0x0000042a                ps2_check_host
- .text.libgcc   0x0000044a        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
-                0x0000044a                __tablejump2__
-                0x0000044e                __tablejump__
-                0x00000456                . = ALIGN (0x2)
+                0x00000436       0x20 PS2_interface.o
+                0x00000436                ps2_check_host
+ .text.libgcc   0x00000456        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x00000456                __tablejump2__
+                0x0000045a                __tablejump__
+                0x00000462                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000456        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00000456                _exit
-                0x00000456                exit
+ .fini9         0x00000462        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000462                _exit
+                0x00000462                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -324,11 +326,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000456        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000462        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000045a                _etext = .
+                0x00000466                _etext = .
 
-.data           0x00800100       0x12 load address 0x0000045a
+.data           0x00800100       0x12 load address 0x00000466
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -351,8 +353,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x00800112                PROVIDE (__bss_end, .)
-                0x0000045a                __data_load_start = LOADADDR (.data)
-                0x0000046c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000466                __data_load_start = LOADADDR (.data)
+                0x00000478                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800112        0x0
                 0x00800112                PROVIDE (__noinit_start, .)
@@ -420,56 +422,56 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x98
+.debug_aranges  0x00000000       0xa0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 keyboard.o
  .debug_aranges
                 0x00000028       0x38 Numpad.o
  .debug_aranges
-                0x00000060       0x38 PS2_interface.o
+                0x00000060       0x40 PS2_interface.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xadd
+.debug_info     0x00000000      0xba0
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x150 keyboard.o
  .debug_info    0x00000150      0x621 Numpad.o
- .debug_info    0x00000771      0x36c PS2_interface.o
+ .debug_info    0x00000771      0x42f PS2_interface.o
 
-.debug_abbrev   0x00000000      0x3d8
+.debug_abbrev   0x00000000      0x42b
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xc1 keyboard.o
  .debug_abbrev  0x000000c1      0x20b Numpad.o
- .debug_abbrev  0x000002cc      0x10c PS2_interface.o
+ .debug_abbrev  0x000002cc      0x15f PS2_interface.o
 
-.debug_line     0x00000000      0x5c8
+.debug_line     0x00000000      0x60a
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x176 keyboard.o
  .debug_line    0x00000176      0x260 Numpad.o
- .debug_line    0x000003d6      0x1f2 PS2_interface.o
+ .debug_line    0x000003d6      0x234 PS2_interface.o
 
-.debug_frame    0x00000000       0xdc
+.debug_frame    0x00000000       0xec
  *(.debug_frame)
  .debug_frame   0x00000000       0x34 keyboard.o
  .debug_frame   0x00000034       0x54 Numpad.o
- .debug_frame   0x00000088       0x54 PS2_interface.o
+ .debug_frame   0x00000088       0x64 PS2_interface.o
 
-.debug_str      0x00000000      0x2b1
+.debug_str      0x00000000      0x2c3
  *(.debug_str)
  .debug_str     0x00000000      0x163 keyboard.o
                                 0x197 (size before relaxing)
  .debug_str     0x00000163      0x11e Numpad.o
                                 0x2ae (size before relaxing)
- .debug_str     0x00000281       0x30 PS2_interface.o
-                                0x1d3 (size before relaxing)
+ .debug_str     0x00000281       0x42 PS2_interface.o
+                                0x238 (size before relaxing)
 
-.debug_loc      0x00000000      0x920
+.debug_loc      0x00000000      0xa41
  *(.debug_loc)
  .debug_loc     0x00000000       0xe2 keyboard.o
  .debug_loc     0x000000e2      0x568 Numpad.o
- .debug_loc     0x0000064a      0x2d6 PS2_interface.o
+ .debug_loc     0x0000064a      0x3f7 PS2_interface.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -489,11 +491,11 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x68
+.debug_ranges   0x00000000       0x70
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 keyboard.o
  .debug_ranges  0x00000018       0x28 Numpad.o
- .debug_ranges  0x00000040       0x28 PS2_interface.o
+ .debug_ranges  0x00000040       0x30 PS2_interface.o
 
 .debug_macro
  *(.debug_macro)
