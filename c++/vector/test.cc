@@ -1,14 +1,3 @@
-//--------------------------------------------
-//NAME: Vasil Kolev
-//CLASS: XIb
-//NUMBER: 6
-//PROBLEM: #2
-//FILE NAME: vector.cc
-//FILE PURPOSE:
-//
-//This file contains the class vector and it's
-//implementation
-//---------------------------------------------
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -20,58 +9,26 @@ template <class T> class Vector{
 	int size_;
 	T* buffer_;
 public:
-//--------------------------------------------
-//FUNCTION: Vector()
-//Constructor with no parameters
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
 	Vector()
 	:capacity_(DEFAULT_START_SIZE),
 	size_(0),
 	buffer_(new T [DEFAULT_START_SIZE])
 	{}
-//--------------------------------------------
-//FUNCTION: Vector(int capacity)
-//This constructor makes a new object with
-//a defined capacity 
-//
-//PARAMETERS:
-//capacity - the custom start capacity
-//----------------------------------------------
+
 	Vector(int capacity)
 	:capacity_(capacity),
 	size_(0),
 	buffer_(new T [capacity])
 	{}
-//--------------------------------------------
-//FUNCTION: ~Vector()
-//Destructor, executes when the object is deleted
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	~Vector(){
 		delete[] buffer_;
 	}
-//--------------------------------------------
-//FUNCTION: int size() const
-//Function that returns the size of the vector
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	int size() const{
 		return size_;
 	}
-//--------------------------------------------
-//FUNCTION: bool empty() const
-//Checks if the vector is empty
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	bool empty() const{
 		if(size_==0){
 			return true;
@@ -79,58 +36,26 @@ public:
 			return false;
 		}
 	}
-//--------------------------------------------
-//FUNCTION: T& operator[](T n)
-//Enables the use of the operator[] on the
-//vector object
-//
-//PARAMETERS:
-//n - which element in order to extract
-//----------------------------------------------
+
 	T& operator[](T n){
 		return *(buffer_ + n);
 	}
-//--------------------------------------------
-//FUNCTION: const T& operator[](T n) const
-//Enables the use of the operator[] on a
-//constant vector object
-//
-//PARAMETERS:
-//n - which element in order to extract
-//----------------------------------------------
+
 	const T& operator[](T n) const{
 		return *(buffer_ + n);
 	}
-//--------------------------------------------
-//FUNCTION: void clear()
-//Clears all the data in the vector
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	void clear(){
 		delete[] buffer_;
 		buffer_ = new T[DEFAULT_START_SIZE];
 		capacity_ = DEFAULT_START_SIZE;
 		size_ = 0;
 	}
-//--------------------------------------------
-//FUNCTION: int capacity() const
-//Returns the allocated memory for the vector
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	int capacity() const{
 		return capacity_;
 	}
-//--------------------------------------------
-//FUNCTION: Vector(const Vector& other)
-//This is a copy constructor
-//
-//PARAMETERS:
-//const Vector& other - the object to be copied
-//----------------------------------------------
+
 	Vector(const Vector& other)
 	:capacity_(other.size()),
 	size_(0){
@@ -140,13 +65,7 @@ public:
 			size_++;
 		}
 	}
-//--------------------------------------------
-//FUNCTION: Vector& operator=(const Vector& other)
-//This function enables inheriting by the operator=
-//
-//PARAMETERS:
-//const Vector& other - the object to inherited
-//----------------------------------------------
+
 	Vector& operator=(const Vector& other){
 		size_ = 0;
 		if(other.size()>capacity_){
@@ -425,14 +344,6 @@ public:
 	}
 };
 
-//--------------------------------------------
-//FUNCTION: int main()
-//The main objective is met here
-//
-//PARAMETERS:
-//int argc - number of arguments
-//char* argv[] - the input arguments
-//----------------------------------------------
 int main(int argc, char* argv[]){
 	if(argc>1){
 		if(argc%2==1){
@@ -492,3 +403,63 @@ int main(int argc, char* argv[]){
 	}
 	return 0;
 }
+/*
+	Vector<int> i;
+	Vector<bool> b;
+	Vector<char> c;
+	Vector<double> d;
+	i.clear();
+	b.clear();
+	c.clear();
+	d.clear();
+	cout << "Capacity of i = " <<i.capacity() << endl;
+	cout << "Capacity of b = " <<b.capacity() << endl;
+	cout << "Capacity of c = " <<c.capacity() << endl;
+	cout << "Capacity of d = " <<d.capacity() << endl;
+	cout << "Size of i = " << i.size() << endl;
+	cout << "Size of b = " << b.size() << endl;
+	cout << "Size of c = " << c.size() << endl;
+	cout << "Size of d = " << d.size() << endl;
+	cout << "Is i empty? = " << i.empty() << endl;
+	cout << "Is b empty? = " << b.empty() << endl;
+	cout << "Is c empty? = " << c.empty() << endl;
+	cout << "Is d empty? = " << d.empty() << endl;
+	Vector<int> v1(i);
+	cout << "Capacity of v1 = " <<v1.capacity() << endl;
+	cout << "Size of v1 = " << v1.size() << endl;
+	cout << "Is v1 empty? = " << v1.empty() << endl;
+	v1 = i;
+	cout << "Capacity of v1 = " <<v1.capacity() << endl;
+	cout << "Size of v1 = " << v1.size() << endl;
+	cout << "Is v1 empty? = " << v1.empty() << endl;
+	Vector<int> v;
+	cout << "Capacity of v = " << v.capacity() << endl;
+	cout << "Size of v = " << v.size() << endl;
+	cout << "Is v empty? = " << v.empty() << endl;
+	cout << "Vector v's first element is = " << v[0] << endl;
+	cout << "Vector v's last element is = " << v.back() << endl;
+	v.push_back(123);
+	v.push_back(33);
+	cout << "Vector v's last element is = " << v.back() << endl;
+	cout << "Capacity of v = " << v.capacity() << endl;
+	cout << "Size of v = " << v.size() << endl;
+	cout << "Is v empty? = " << v.empty() << endl;
+	cout << "Vector v's first element is = " << v.front() << endl;
+	cout << "Vector v's last element is = " << v.back() << endl;
+	for(int i =0;i<v.size();i++){
+		cout << v[i] << endl;
+	}
+	v.pop_back();
+	for(int i =0;i<v.size();i++){
+		cout << v[i] << endl;
+	}
+	v.push_back(11111);
+	for(int i =0;i<v.size();i++){
+		cout << v[i] << endl;
+	}
+	v.pop_back();
+	v.pop_back();
+	for(int i =0;i<v.size();i++){
+		cout << v[i] << endl;
+	}
+*/
