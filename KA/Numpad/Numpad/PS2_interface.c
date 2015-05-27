@@ -17,6 +17,16 @@ void ps2_initialize(void){
 	DATA_1();
 }
 
+void ps2_wait_for_host(){
+	uint16_t timeout;
+	for(timeout=0; timeout<150; timeout++){
+		if(PS2_PIN & _BV(PS2_CLOCK)){
+			break;
+		}
+		_delay_us(40);
+	}
+}
+
 /* Sends 1 byte to host + 1 parity bit */
 void ps2_send_byte(uint8_t data){
 	uint8_t count;
@@ -45,9 +55,7 @@ void ps2_send_byte(uint8_t data){
 		_delay_loop_1(ps2_half_clock);
 	}
 	CLOCK_1();
-	_delay_loop_1(ps2_half_clock);
-	_delay_loop_1(ps2_half_clock);
-	_delay_loop_1(ps2_half_clock);
+	ps2_wait_for_host();
 }
 
 /* Function reads 1 byte from host + 1 parity bit. It returns data in the LSB and parity in the MSB */
@@ -88,9 +96,7 @@ uint16_t ps2_recieve_byte(void){
 	_delay_loop_1(ps2_half_clock);
 	CLOCK_1();
 	DATA_1();
-	_delay_loop_1(ps2_half_clock);
-	_delay_loop_1(ps2_half_clock);
-	_delay_loop_1(ps2_half_clock);
+	ps2_wait_for_host();
 	return result;
 }
 
