@@ -11,6 +11,7 @@
 //
 //---------------------------------------------
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 template<class T> class List{
@@ -245,6 +246,9 @@ public:
 		other.tail_ = tail_;
 		head_ = temp_head;
 		tail_ = temp_tail;
+		int temp_size = size_;
+		size_ = other.size_;
+		other.size_ = temp_size;
 	}
 //--------------------------------------------
 //FUNCTION: List(const List& other)
@@ -293,6 +297,17 @@ public:
 		Iterator(Elem* position)
 		: iterator_(position)
 		{}
+//--------------------------------------------
+//FUNCTION: Elem* get_pointer()
+//Returns the address of the currently pointed
+//object by the iterator
+//
+//PARAMETERS:
+//None
+//----------------------------------------------
+		Elem* get_pointer(){
+			return iterator_;
+		}
 //--------------------------------------------
 //FUNCTION: Iterator operator++()
 //Enables incrementing the iterator with the operator++
@@ -567,24 +582,12 @@ public:
 			return &(iterator_->data_);
 		}
 	};
-//--------------------------------------------
-//FUNCTION: Const_Reverse_Iterator rbegin() const
-//Returns a reverse_iterator, pointed at the first element
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	Const_Reverse_Iterator rbegin() const{
 		Const_Reverse_Iterator iterator = head_;
 		return iterator;
 	}
-//--------------------------------------------
-//FUNCTION: Const_Reverse_Iterator rend() const
-//Returns a reverse_iterator, pointed at the last element
-//
-//PARAMETERS:
-//None
-//----------------------------------------------
+
 	Const_Reverse_Iterator rend() const{
 		Const_Reverse_Iterator iterator = tail_;
 		return iterator;
@@ -598,13 +601,16 @@ public:
 //const T& x - the value of the new element
 //----------------------------------------------
 	Iterator insert(Iterator pos, const T& x){
-		cout << *pos << endl;
-		Elem* e = new Elem(x);
-		//e->next_ = pos;
-		//e->prev_ = pos->prev_->next_;
-		//pos->prev_->next_ = e;
-		//pos->prev_ = e;
-		
+		if(pos == begin()){
+			push_front(x);
+		}else{
+			Elem* e = new Elem(x);
+			e->next_ = pos.get_pointer();
+			e->prev_ = pos.get_pointer()->prev_;
+			pos.get_pointer()->prev_->next_ = e;
+			pos.get_pointer()->prev_ = e;
+			size_++;
+		}
 	}
 //--------------------------------------------
 //FUNCTION: Iterator erase(Iterator pos)
@@ -614,7 +620,16 @@ public:
 //Iterator pos - iterator, shows where to insert the element
 //----------------------------------------------
 	Iterator erase(Iterator pos){
-
+		if(pos == end()){
+			pop_back();
+		}else if(pos == begin()){
+			pop_front();
+		}else{
+			pos.get_pointer()->prev_->next_ = pos.get_pointer()->next_;
+			pos.get_pointer()->next_->prev_ = pos.get_pointer()->prev_;
+			size_--;
+			delete pos.get_pointer();
+		}
 	}
 //--------------------------------------------
 //FUNCTION: Iterator erase(Iterator first, Iterator last)
@@ -625,11 +640,112 @@ public:
 //Iterator last - stop position, not included in the deleting
 //----------------------------------------------
 	Iterator erase(Iterator first, Iterator last){
-
+		Elem* temp = first.get_pointer()->next_;
+		while(first != last){
+			erase(first);
+			first = temp;
+			temp = temp->next_;
+		}
+		erase(first);
 	}
 };
 
 int main(int argc, char* argv[]){
+	if(argc > 4){
+		//1
+		List<int> l1, l2;
+		int argv1 = atoi(argv[1]);
+		int argv2 = atoi(argv[2]);
+		int argv3 = atoi(argv[3]);
+		int argv4 = atoi(argv[4]);
+		
+		for(int i = argv1; i<argv2;i++){
+			l1.push_back(i);
+		}
+		for(int i = argv3; i<argv4;i++){
+			l2.push_back(i);
+		}
+		//2
+		cout << "l1: {";
+		for(List<int>::Iterator iterator = l1.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;
+		cout << "l2: {";
+		for(List<int>::Iterator iterator = l2.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;
+		//3
+		int res = 0;
+		for(List<int>::Iterator iterator = l1.begin();
+		iterator != l1.end(); iterator++){
+			for(List<int>::Iterator iterator2 = l2.begin();
+			iterator2 != l2.end(); iterator2++){
+				if(*iterator == *iterator2){
+					res++;
+				}
+			}
+		}
+		cout << "equal element in l1 and l2: " << res << endl;
+		//4
+		l1.push_back(-100);
+		l2.push_back(-100);
+		cout << "l1: {";
+		for(List<int>::Iterator iterator = l1.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;
+		cout << "l2: {";
+		for(List<int>::Iterator iterator = l2.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;
+		//5
+		List<int> l(l2);
+		cout << "l:  {";
+		for(List<int>::Iterator iterator = l.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;		
+		//6
+		for(List<int>::Reverse_Iterator iterator = l1.rend();
+		iterator!=0; iterator++){
+			l.push_front(*iterator);
+		}
+		cout << "l:  {";
+		for(List<int>::Iterator iterator = l.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;
+		//7
+		List<int>::Iterator bit = 0;
+		for(List<int>::Iterator iterator = l.begin();
+		iterator != 0; iterator++){	
+			if(*iterator == -100){
+				bit = iterator;
+				break;
+			}
+		}
+		l.erase(bit, l.end());
+		cout << "l:  {";
+		for(List<int>::Iterator iterator = l.begin();
+		iterator != 0; iterator++){
+			cout << *iterator << ",";
+		}
+		cout << "}" << endl;
+
+	}else{
+		cout << "Too few argumetns!" << endl;
+	}
+	return 0;
+}
 /*	List<int> l1;
 	cout << "Size after last change = " << l1.size() << endl;
 	cout << "is it empty? = " << l1.empty() << endl;
@@ -741,17 +857,34 @@ int main(int argc, char* argv[]){
 	List<int>::Const_Reverse_Iterator iterator8 = l7.rbegin();
 	cout << "iterator8 = " << *iterator8 << endl;
 	cout << "are they the same? = " << (iterator7 == iterator8) << endl;
-
 	List<int>::Iterator iterator9 = l1.begin();
+	l1.insert(iterator9, 987);	
 	iterator9++;
 	l1.insert(iterator9, 987);
-*/
-
+	l1.insert(iterator9, 888);
+	iterator9++;
+	l1.insert(iterator9, 444);	
+	List<int>::Iterator iterator10 = l1.begin();
+	while(iterator10 != l1.end()){
+		cout << *iterator10 << endl;
+		iterator10++;
+	}
+	l1.erase(iterator9);
+	List<int>::Iterator iterator11 = l1.begin();
+	while(iterator11 != l1.end()){
+		cout << *iterator11 << endl;
+		iterator11++;
+	}	
+	iterator11 = l1.begin();
+	cout << "======" << endl;
+	l1.erase(l1.begin(), l1.end());
+	cout << l1.empty() << endl;
+	cout << l1.size() << endl;
+	cout << *l1.begin() << endl;
+	cout << *l1.end() << endl;
 	//TODO
 	//make the main, 
 	//seperate in 3-4 files
-	//make a Mkaefile
-	//finish with those 3 funstions
-	//commit the full version on time 7:40 
-	return 0;
-}
+	//make a Makefile
+	//commit the full version on time 7:40
+*/
