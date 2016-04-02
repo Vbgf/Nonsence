@@ -1,8 +1,6 @@
-#define VCC  10  //D4, +5V
 #define TRIG 11 //D5, digital output
 #define ECHO 12 //D6, analog input
-//#define GND   //D7, GND
-#define PWM  3  // test pin
+#define TIMEOUT 10000
 
 int maximumRange = 200;
 int minimumRange = 0;
@@ -10,15 +8,9 @@ long duration, distance;
 
 void setup() {
   Serial.begin (9600);
-  pinMode(VCC,  OUTPUT);
   pinMode(TRIG, OUTPUT);
   pinMode(ECHO, INPUT );
-//  pinMode(GND,  OUTPUT);
-
-  digitalWrite(VCC,  HIGH);
   digitalWrite(TRIG, LOW );
-//  digitalWrite(GND,  LOW );
-  analogWrite(PWM, 150);
 }
 
 void loop() { 
@@ -27,7 +19,7 @@ void loop() {
   digitalWrite(TRIG, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG, LOW);
-  duration = pulseIn(ECHO, HIGH);
+  duration = pulseIn(ECHO, HIGH, TIMEOUT);
   
   //Calculate the distance (in cm) based on the speed of sound.
   distance = duration/58.2;
@@ -39,5 +31,5 @@ void loop() {
     Serial.println(distance);
   }
   
-  delay(100);
+  //delay(100);
 }
