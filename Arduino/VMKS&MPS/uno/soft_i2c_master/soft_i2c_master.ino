@@ -18,8 +18,12 @@ public:
   }
 
   void init(uint8_t SCL, uint8_t SDA){
-    pinMode(SCL, OUTPUT);
-    pinMode(SDA, OUTPUT);
+    pinMode(SCL_, INPUT);
+    pinMode(SDA_, INPUT);
+    SCL_ = SCL;
+    SDA_ = SDA;
+    pinMode(SCL_, OUTPUT);
+    pinMode(SDA_, OUTPUT);
     digitalWrite(SCL, HIGH);
     digitalWrite(SDA, HIGH);   
   }
@@ -36,7 +40,16 @@ public:
     digitalWrite(SCL_, HIGH);
     delayMicroseconds(clock_/2);
     digitalWrite(SDA_, HIGH);
+    delayMicroseconds(20*clock_);
+  }
+
+  void ACK(){
+    digitalWrite(SDA_, HIGH);
+    delayMicroseconds(clock_/2);
+    digitalWrite(SCL_, HIGH);
     delayMicroseconds(clock_);
+    digitalWrite(SCL_, LOW);
+    delayMicroseconds(clock_/2);
   }
 
   bool wait_ACK(){  
@@ -45,7 +58,7 @@ public:
     digitalWrite(SCL_, HIGH);
     delayMicroseconds(clock_/2);
     bool ack = digitalRead(SDA_);
-    delayMicroseconds(clock_/2);
+    delayMicroseconds(5*clock_/2);
     digitalWrite(SCL_, LOW);
     pinMode(SDA_, OUTPUT);
     return !ack;
@@ -62,7 +75,8 @@ public:
 
   void send_address(uint8_t adr){
     uint8_t b = 1<<6;
-    for(uint8_t i=0; i<7;i++){
+    uint8_t i;
+    for(i=0; i<7; i++){
       digitalWrite(SDA_, (adr&b));
       b = b >> 1;
       delayMicroseconds(clock_/2);
@@ -75,11 +89,10 @@ public:
 
   void send_byte(uint8_t B){
     uint8_t b = 1<<7;
-    for(uint8_t i=0; i<7;i++){
+    uint8_t i;
+    for(i=0; i<8; i++){
       digitalWrite(SDA_, (B&b));
       b = b >> 1;
-      // Remove print later
-      Serial.println(B&b);
       delayMicroseconds(clock_/2);
       digitalWrite(SCL_, HIGH);
       delayMicroseconds(clock_);
@@ -90,13 +103,18 @@ public:
 
   uint8_t recieve_byte(){
     uint8_t result = 0;
+    uint8_t b = 0;
+    uint8_t i;
     pinMode(SDA_, INPUT);
-    for(uint8_t i=0; i<8; i++){
-      result = result<<1;
+    for(i=0; i<8; i++){
       delayMicroseconds(clock_/2);
       digitalWrite(SCL_, HIGH);
       delayMicroseconds(clock_/2);
-      result = result&digitalRead(SDA_);
+      
+      b = digitalRead(SDA_);
+      result = result << 1;
+      result = result|b;
+      
       delayMicroseconds(clock_/2);
       digitalWrite(SCL_, LOW);
       delayMicroseconds(clock_/2);
@@ -111,6 +129,7 @@ public:
     send_address(adr);
     send_bit(0);
     result = wait_ACK();
+    send_byte(0);
     stop();
     return result;
   }
@@ -119,35 +138,26 @@ public:
     start();
     send_address(adr);
     send_bit(0);
-    if(wait_ACK()){
-      //resend if needed
-      stop();
-    }
+    wait_ACK();
     send_byte(data);
-    if(wait_ACK()){
-      //resend if needed
-      stop();
-    }
+    wait_ACK();
     stop();
   }
 
   uint8_t recieveData(uint8_t adr){
+    uint8_t result = 0;
     start();
     send_address(adr);
     send_bit(1);
-    if(wait_ACK()){
-      //resend if needed
-      stop();
-    }
-    recieve_byte();
-    if(wait_ACK()){
-      //resend if needed
-      stop();
-    }
+    wait_ACK();
+    result = recieve_byte();
+    ACK();
+    stop();
+    return result;
   }
 };
 
-i2c bus = i2c(4, 5);
+i2c bus = i2c(CLOCK_PIN, DATA_PIN);
 
 void setup() {
   bus.init(CLOCK_PIN, DATA_PIN);
@@ -155,8 +165,10 @@ void setup() {
 }
 
 void loop() {
-  uint8_t data = 15;
-  for(uint8_t i=START_ADDRESS; i<MAX_ADDRESS; i++){
+  uint8_t data = 45;
+  uint8_t result = 0;
+  uint8_t i;
+  for(i=START_ADDRESS; i<MAX_ADDRESS; i++){
     if (bus.checkSlave(i)){
       Serial.print(F("There is a device on: ")); 
       Serial.println(i);
@@ -164,16 +176,13 @@ void loop() {
       Serial.print(data);
       Serial.print(F(" to device "));
       Serial.println(i);
-      
       bus.sendData(i, data);
-/*  
-      uint8_t result = bus.recieveData(i);
   
+      result = bus.recieveData(i);
       Serial.print(F("Recieved data ")); 
       Serial.print(result);
       Serial.print(F(" from device "));
       Serial.println(i);
-*/
     }else{
       Serial.print(F("There is no device on: ")); 
       Serial.println(i);
