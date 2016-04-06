@@ -23,6 +23,14 @@ void requestEvent() {
   Wire.write(distance);
 }
 
+void receiveEvent(int len) {
+  int x = Wire.read();
+  Serial.print(F("Master sent: "));
+  Serial.println(x);
+  Serial.print(F("Length: "));
+  Serial.println(len);
+}
+
 void setup() {
   wdt_disable();
   wdt_enable(WDTO_1S);
@@ -63,6 +71,7 @@ void setup() {
     }
     Wire.begin(address);
     Wire.onRequest(requestEvent);
+    Wire.onReceive(receiveEvent);
   }
 
   pinMode(TRIG, OUTPUT);
