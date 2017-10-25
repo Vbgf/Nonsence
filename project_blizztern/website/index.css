@@ -1,0 +1,9 @@
+body{
+	background-color: blue;
+}
+
+#hello_world{
+	background-color: white;
+	text-align: center;
+	font-style: italic;
+}
