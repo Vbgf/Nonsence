@@ -1,9 +1,50 @@
 body{
-	background-color: blue;
+	margin: 0px;
+	padding: 0px;
+	background-image: url("battle-net-1920x1080.jpg");
+    background-repeat: no-repeat;
+	background-size: 1280px 720px;
+    background-position: center top;
+	//background-color: #e6e6e6;
+	background-color: #00111a;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-#hello_world{
+#banner{
+	margin: auto;
+	padding: 0px;
+	width: auto;
+	height: 60px;
+	background-color: #00b8e6;
+	border-bottom: 1px solid white;
+	display: flex;
+	justify-content: space-evenly;
+    opacity: 0.5;
+}
+
+#menu{
+	margin: auto;
+	padding: 0px;
+	width: auto;
+	height: 40px;
+	background-color: #00b8e6;
+	border-bottom: 1px solid white;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.menuItem{
+	margin: 5px;
+	padding: 0px;
+	width: 100px;
+	height: 30px;
 	background-color: white;
 	text-align: center;
-	font-style: italic;
+	line-height: 30px;
+
+	border-radius: 5px;
+}
+
+.menuItem:hover{
+    background-color: yellow;
 }
