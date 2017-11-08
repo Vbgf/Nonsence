@@ -1,9 +1,10 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	background-image: url("battle-net-1920x1080.jpg");
+	//background-image: url("battle-net-1920x1080.jpg");
+	background-image: url("69181147-blizzard-wallpapers.jpg");
     background-repeat: no-repeat;
-	background-size: 1280px 720px;
+	//background-size: 1280px 720px;
     background-position: center top;
 	//background-color: #e6e6e6;
 	background-color: #00111a;
@@ -13,18 +14,28 @@ body{
 #banner{
 	margin: auto;
 	padding: 0px;
-	padding-left: 250px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	width: auto;
 	height: 40px;
-	background-color: #00b8e6;
+	//background-color: #00b8e6;
 	border-bottom: 1px solid white;
-    //opacity: 0.5;
+	background: rgba(0,0,0,0.7);
+}
+
+.backgroundBlur{
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	left: -100px;
+	width: 100%;
+	height: 100px;
+	z-index: -1;
+	background: rgba(0,0,0,0.6);
+	filter: blur(10px);
 }
 
 #bannerLogo{
 	margin: 0px;
+	margin-left: 10%;
 	padding: 0px;
 	color: white;
 	height: 40px;
@@ -35,30 +46,24 @@ body{
 #menu{
 	margin: auto;
 	padding: 0px;
-	padding-left: 250px;
+	padding-left: 10%;
 	padding-top: 7px;
 	padding-bottom: 2px;
 	width: auto;
 	height: 30px;
-	background-color: #00b8e6;
+	//background-color: #00b8e6;
 	border-bottom: 1px solid white;
-	display: flex;
+	background: rgba(0,0,0,0.7);
 }
 
 .menuItem{
 	margin: 0px;
 	margin-right: 40px;
 	padding: 0px;
-	//width: 100px;
-	//height: 30px;
 	font-size: 20px;
 	color: white;
-	//background-color: white;
-	//text-align: center;
 	line-height: 30px;
-
-	border-radius: 5px;
-	opacity: 0.8;
+	text-decoration: none;
 }
 
 .menuItem:hover{
