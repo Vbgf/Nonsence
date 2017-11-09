@@ -1,49 +1,55 @@
-body{
+html, body{
 	margin: 0px;
 	padding: 0px;
-	//background-image: url("battle-net-1920x1080.jpg");
-	background-image: url("69181147-blizzard-wallpapers.jpg");
-    background-repeat: no-repeat;
-	//background-size: 1280px 720px;
-    background-position: center top;
-	//background-color: #e6e6e6;
 	background-color: #00111a;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 #banner{
+	position: relative;
 	margin: auto;
 	padding: 0px;
+	padding-left: 10%;
+	padding-top: 5px;
+	padding-bottom: 4px;
 	width: auto;
-	height: 40px;
-	//background-color: #00b8e6;
+	height: 50px;
+	text-align: left;
 	border-bottom: 1px solid white;
 	background: rgba(0,0,0,0.7);
+	overflow: hidden;
+	z-index: 1;
 }
 
-.backgroundBlur{
+#bannerBlur{
 	position: absolute;
-	margin: 0px;
-	padding: 0px;
-	left: -100px;
-	width: 100%;
-	height: 100px;
-	z-index: -1;
-	background: rgba(0,0,0,0.6);
+	top: -30px;
+	right: -30px;
+	bottom: -30px;
+	left: -30px;
+	//background-image: url("69181147-blizzard-wallpapers.jpg");
+	background-image: url("blur_test2.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+	background-size: 1280px 720px;
 	filter: blur(10px);
+	z-index: 1;
 }
 
 #bannerLogo{
+	position: relative;
 	margin: 0px;
-	margin-left: 10%;
 	padding: 0px;
 	color: white;
-	height: 40px;
-	font-size: 40px;
+	height: 50px;
+	font-size: 45px;
 	text-decoration: none;
+	text-align: left;
+	z-index: 2;
 }
 
 #menu{
+	position: relative;
 	margin: auto;
 	padding: 0px;
 	padding-left: 10%;
@@ -51,12 +57,30 @@ body{
 	padding-bottom: 2px;
 	width: auto;
 	height: 30px;
-	//background-color: #00b8e6;
+	text-align: left;
 	border-bottom: 1px solid white;
 	background: rgba(0,0,0,0.7);
+	overflow: hidden;
+	z-index: 1;
+}
+
+#menuBlur{
+	position: absolute;
+	top: -90px;
+	right: -30px;
+	bottom: -30px;
+	left: -30px;
+	//background-image: url("69181147-blizzard-wallpapers.jpg");
+    	background-image: url("blur_test2.png");
+	background-repeat: no-repeat;
+    background-position: center top;
+	background-size: 1280px 720px;
+	filter: blur(10px);
+	z-index: 1;
 }
 
 .menuItem{
+	position: relative;
 	margin: 0px;
 	margin-right: 40px;
 	padding: 0px;
@@ -64,9 +88,32 @@ body{
 	color: white;
 	line-height: 30px;
 	text-decoration: none;
+	z-index: 2;
 }
 
 .menuItem:hover{
     //background-color: yellow;
 	opacity: 1;
+}
+
+#image1{
+	position: relative;
+	margin: auto;
+	padding: 0px;
+	//background-color: white;
+	//background-image: url("69181147-blizzard-wallpapers.jpg");
+    background-image: url("blur_test2.png");
+	background-repeat: no-repeat;
+    background-position: center top;
+	background-size: 1280px 720px;
+	top: -130px;
+	width: auto;
+	height: 720px;
+	z-index: 0;
+}
+
+#content{
+	width: auto;
+	height: 2000px;
+	background-color: white;
 }
