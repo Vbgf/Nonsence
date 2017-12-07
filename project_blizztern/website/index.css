@@ -23,10 +23,12 @@ html, body{
 	bottom: 0px;
 	left: 0px;
 	//background-image: url("69181147-blizzard-wallpapers.jpg");
-	background-image: url("blur_test2.png");
+	//background-image: url("blur_test2.png");
+    background-image: url("sample_castle.jpg");
     background-repeat: no-repeat;
     background-position: center top;
-	background-size: 1280px 720px;
+	//background-size: 1280px 720px;
+	background-size: 2560px 504px;
 	//background-color: white;
 	filter: blur(10px);
 }
@@ -114,10 +116,12 @@ html, body{
 	padding-top: 100px;
 	//background-color: white;
 	//background-image: url("69181147-blizzard-wallpapers.jpg");
-    background-image: url("blur_test2.png");
+    //background-image: url("blur_test2.png");
+	background-image: url("sample_castle.jpg");
 	background-repeat: no-repeat;
     background-position: center top;
-	background-size: 1280px 720px;
+	//background-size: 1280px 720px;
+	//background-size: 2560px 504px;
 	width: auto;
 	height: 404px;
 	border-bottom: 1px solid white;
